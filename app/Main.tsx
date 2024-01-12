@@ -1,8 +1,8 @@
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
-import { formatDate } from 'pliny/utils/formatDate'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
+import { formatDate } from 'pliny/utils/formatDate'
 
 const MAX_DISPLAY = 5
 
@@ -12,19 +12,18 @@ export default function Home({ posts }) {
       <div className="my-6 flex flex-col items-center gap-x-12 xl:mb-12 xl:flex-row">
         <div className="mr-8 pt-6">
           <h1 className="pb-6 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Hi, I’m Timothy Lin
+            Hi, I’m Jona Schlegel
           </h1>
           <h2 className="prose text-lg text-gray-600 dark:text-gray-400">
-            {`Welcome to my blog - ${siteMetadata.description}. I am the co-founder of Cylynx, a data
-            scientist by profession and economist by training. In my free time, I like developing `}
-            <Link href="/projects">side projects</Link>
+            {`Welcome to my blog - ${siteMetadata.description}. I am the founder of archaeoINK, a landscape archaeologist by profession and web developer bz training. In my free time, I like to draw and create `}
+            <Link href="/projects">projects like these</Link>
             {' and '}
-            <Link href="/blog">blogging</Link>
+            <Link href="/blog">blog</Link>
             {' about them. Have a good read!'}
           </h2>
         </div>
         <div className="mx-2 my-12 flex w-[300px] items-center justify-center sm:w-[400px] md:w-[550px]">
-          <NewsletterForm title="Stay updated, receive the latest post straight to your mailbox" />
+          <NewsletterForm title="Stay updated, and receive the latest ideas straight to your mailbox" />
         </div>
       </div>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">

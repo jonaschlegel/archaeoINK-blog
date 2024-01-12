@@ -1,7 +1,7 @@
 import Image from './Image'
 import Link from './Link'
 
-const Card = ({ title, description, imgSrc, href }) => (
+const Card = ({ title, description, imgSrc, href, keyFeatures }) => (
   <div className="md max-w-[544px] p-4 md:w-1/2">
     <div
       className={`${
@@ -39,6 +39,18 @@ const Card = ({ title, description, imgSrc, href }) => (
           )}
         </h2>
         <p className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">{description}</p>
+        {keyFeatures && keyFeatures.length > 0 && (
+          <div className="mb-3">
+            <h3 className="text-lg font-semibold">Key Features:</h3>
+            <ul className="list-inside list-disc">
+              {keyFeatures.map((feature, index) => (
+                <li key={index} className="text-gray-600 dark:text-gray-400">
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         {href && (
           <Link
             href={href}

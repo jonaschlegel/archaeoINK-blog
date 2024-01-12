@@ -1,3 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="257.3002514103748 273.6326804445026 40.80046145627182 46.36731955549749" width="36.8" height="42.37"><defs><path d="M267.69 281.9L273.81 302.47L267.65 308.43L260.31 282.03L260.36 281.98L260.16 281.98L265.19 275.41L295.1 274.63L290.49 281.65L267.69 281.9Z" id="azoNB3Vhb"></path><linearGradient id="gradienta33QAtoBOC" gradientUnits="userSpaceOnUse" x1="293.42" y1="278.05" x2="293.42" y2="313.21"><stop style="stop-color: #67e8f9;stop-opacity: 1" offset="0%"></stop><stop style="stop-color: #06b6d4;stop-opacity: 1" offset="100%"></stop></linearGradient><path d="M293.22 310.41L293.42 310.41L288.22 316.87L258.3 317L263.09 310.08L285.9 310.33L280.31 289.62L286.62 283.81L293.28 310.35L293.22 310.41Z" id="cVvL12Sg2"></path><linearGradient id="gradientd153WjyVy" gradientUnits="userSpaceOnUse" x1="260.07" y1="313.62" x2="260.98" y2="278.47"><stop style="stop-color: #67e8f9;stop-opacity: 1" offset="0%"></stop><stop style="stop-color: #06b6d4;stop-opacity: 1" offset="100%"></stop></linearGradient></defs><g><g><use xlink:href="#azoNB3Vhb" opacity="1" fill="url(#gradienta33QAtoBOC)"></use></g><g><use xlink:href="#cVvL12Sg2" opacity="1" fill="url(#gradientd153WjyVy)"></use></g></g></svg>
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+ "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="32.000000pt" height="32.000000pt" viewBox="0 0 32.000000 32.000000"
+ preserveAspectRatio="xMidYMid meet">
+<g transform="translate(0.000000,32.000000) scale(0.100000,-0.100000)"
+fill="#69f542" stroke="none">
+<path d="M203 288 c-6 -7 -13 -21 -16 -30 -6 -16 -23 -22 -52 -19 -22 2 -43
+-57 -49 -136 -8 -87 -2 -98 29 -63 10 11 23 20 29 20 18 0 75 56 86 85 6 17 6
+33 -2 51 -9 20 -9 30 0 45 25 40 3 82 -25 47z m-79 -134 c9 -3 16 -12 16 -19
+0 -7 8 -11 18 -9 9 2 24 0 31 -5 12 -8 11 -13 -10 -30 -13 -11 -32 -20 -41
+-21 -9 0 -21 -7 -26 -16 -5 -9 -12 -13 -15 -8 -5 9 3 114 8 114 2 0 10 -3 19
+-6z"/>
+</g>
+</svg>
