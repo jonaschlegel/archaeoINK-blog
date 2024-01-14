@@ -27,6 +27,16 @@ module.exports = {
       colors: {
         primary: colors.sky,
         gray: colors.slate,
+        forestGreen: '#2F402A',
+        oliveGreen: '#657334',
+        cream: '#F2ECD8',
+        burntOrange: '#D96E30',
+        offWhite: '#F2F2F2',
+        charcoal: '#403738',
+        seaGreen: '#029A75',
+        lightGrey: '#E3DDDD',
+        darkBrown: '#8C5C03',
+        palePink: '#C0B1AC',
       },
       typography: ({ theme }) => ({
         DEFAULT: {
