@@ -25,8 +25,8 @@ module.exports = {
         sans: ['var(--font-inter)', ...fontFamily.sans],
       },
       colors: {
-        primary: colors.sky,
-        gray: colors.slate,
+        primary: colors.teal,
+        gray: colors.zinc,
         forestGreen: '#2F402A',
         oliveGreen: '#657334',
         cream: '#F2ECD8',
