@@ -20,7 +20,7 @@ const siteMetadata = {
     },
   },
   newsletter: {
-    provider: '',
+    provider: 'ConvertKit',
   },
   comment: {
     provider: '',
