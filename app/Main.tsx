@@ -1,7 +1,7 @@
 import Link from '@/components/Link'
+import MailerLiteForm from '@/components/MailerLiteForm'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
-import NewsletterForm from 'pliny/ui/NewsletterForm'
 import { formatDate } from 'pliny/utils/formatDate'
 
 const MAX_DISPLAY = 5
@@ -15,15 +15,15 @@ export default function Home({ posts }) {
             Hi, I’m Jona Schlegel
           </h1>
           <h2 className="prose text-lg text-gray-600 dark:text-gray-400">
-            {`Welcome to my blog - ${siteMetadata.description}. I am the founder of archaeoINK, a landscape archaeologist by profession and web developer bz training. In my free time, I like to draw and create `}
+            {`Welcome to my blog - ${siteMetadata.description}. I am the founder of archaeoINK, a landscape archaeologist by profession and web developer by training. In my free time, I like to draw and create `}
             <Link href="/projects">projects like these</Link>
             {' and '}
             <Link href="/blog">blog</Link>
-            {' about them. Have a good read!'}
+            {' about them.'}
           </h2>
         </div>
         <div className="mx-2 my-12 flex w-[300px] items-center justify-center sm:w-[400px] md:w-[550px]">
-          <NewsletterForm title="Stay updated, and receive the latest ideas straight to your mailbox" />
+          <MailerLiteForm />
         </div>
       </div>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
