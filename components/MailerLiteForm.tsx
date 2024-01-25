@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 
 declare global {
   interface Window {
-    ml: any
+    ml: (command: string, accountId: string) => void
   }
 }
 
@@ -19,7 +19,6 @@ const MailerLiteForm = () => {
       window.ml('account', '787573')
     }
 
-    // Cleanup function
     return () => {
       if (document.body.contains(script)) {
         document.body.removeChild(script)
