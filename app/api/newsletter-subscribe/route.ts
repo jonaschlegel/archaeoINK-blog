@@ -1,17 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(req: NextRequest) {
-  // Log the request body
   const requestBody = await req.json()
   console.log('Received request body:', requestBody)
 
-  // Log environment variables
   console.log('Environment Variables:', {
     apiKey: process.env.CONVERTKIT_PUBLIC_API_KEY,
     formId: process.env.CONVERTKIT_SUBSCRIBE_FORM_ID,
   })
 
-  const { email } = await req.json()
+  const { email } = requestBody
 
   if (!email) {
     return new Response(JSON.stringify({ message: 'No email address provided.' }), { status: 400 })

@@ -5,7 +5,6 @@ type NewsletterButtonProps = {
   onClick?: () => void
   className?: string
   type?: 'button' | 'submit' | 'reset'
-  // Add any other props you might need
 }
 
 const NewsletterButton: React.FC<NewsletterButtonProps> = ({
