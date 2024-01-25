@@ -1,3 +1,4 @@
+import ConvertKitForm from '@/components/ConvertKitForm'
 import Link from '@/components/Link'
 import MailerLiteForm from '@/components/MailerLiteForm'
 import Tag from '@/components/Tag'
@@ -22,8 +23,10 @@ export default function Home({ posts }) {
             {' about them.'}
           </h2>
         </div>
-        <div className="mx-2 my-12 flex w-[300px] items-center justify-center sm:w-[400px] md:w-[550px]">
-          <MailerLiteForm />
+      </div>
+      <div className="my-12 flex items-center justify-center">
+        <div className="w-full max-w-md px-4">
+          <ConvertKitForm />
         </div>
       </div>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">

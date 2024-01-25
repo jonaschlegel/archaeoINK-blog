@@ -4,16 +4,15 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 
-// You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' www.googletagmanager.com www.google-analytics.com;
-  style-src 'self' 'unsafe-inline' *.googleapis.com cdn.jsdelivr.net;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' www.googletagmanager.com www.google-analytics.com assets.mailerlite.com archaeoink.ck.page;
+  style-src 'self' 'unsafe-inline' *.googleapis.com cdn.jsdelivr.net assets.mailerlite.com;
   frame-src youtube.com www.youtube.com timlrx.shinyapps.io;
   img-src * blob: data:;
   media-src *.s3.amazonaws.com;
   connect-src *;
-  font-src 'self' fonts.gstatic.com cdn.jsdelivr.net
+  font-src 'self' fonts.gstatic.com cdn.jsdelivr.net cdn.scite.ai;
 `
 
 const securityHeaders = [
