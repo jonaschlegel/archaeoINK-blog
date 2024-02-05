@@ -28,7 +28,7 @@ const siteMetadata = {
   search: {
     provider: 'kbar', // Choose 'kbar' or 'algolia' or another provider
     kbarConfig: {
-      searchDocumentsPath: 'search.json', // Path to your search documents
+      searchDocumentsPath: 'search.json',
     },
   },
 }

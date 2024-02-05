@@ -16,7 +16,7 @@ export default function Home({ posts }) {
             Hi, I’m Jona Schlegel
           </h1>
           <h2 className="prose text-lg text-gray-600 dark:text-gray-400">
-            {`Welcome to my blog - ${siteMetadata.description}. I am the founder of archaeoINK, a landscape archaeologist by profession and web developer by training. In my free time, I like to draw and create `}
+            {`Welcome to my blog - ${siteMetadata.description}. I am a freelancer, a landscape archaeologist by profession and web developer by training. In my free time, I like to draw and create `}
             <Link href="/projects">projects like these</Link>
             {' and '}
             <Link href="/blog">blog</Link>
