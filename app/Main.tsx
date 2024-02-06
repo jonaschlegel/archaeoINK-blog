@@ -13,10 +13,10 @@ export default function Home({ posts }) {
       <div className="my-6 flex flex-col items-center gap-x-12 xl:mb-12 xl:flex-row">
         <div className="mr-8 pt-6">
           <h1 className="pb-6 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Hi, I’m Jona Schlegel
+            {`Hi, and welcome to the ${siteMetadata.description}a blog hosted by me, Jona Schlegel.`}
           </h1>
           <h2 className="prose text-lg text-gray-600 dark:text-gray-400">
-            {`Welcome to my blog - ${siteMetadata.description}. I am a freelancer, a landscape archaeologist by profession and web developer by training. In my free time, I like to draw and create `}
+            {`I am a freelancer, a landscape archaeologist by profession and web developer by training. In my free time, I like to draw and create `}
             <Link href="/projects">projects like these</Link>
             {' and '}
             <Link href="/blog">blog</Link>
