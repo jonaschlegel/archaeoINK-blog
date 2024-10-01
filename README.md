@@ -1,4 +1,4 @@
-# Trowel Journal Blog
+# archaeoINK Blog
 
 ## Acknowledgement
 
@@ -6,7 +6,7 @@ This blog is built using the [Tailwind Nextjs Starter Blog](https://github.com/t
 
 ## About TrowelJournal
 
-Trowel Journal is used as a blog environment to talk about different archaeological topics, including illustrations, maps, GIS and also sometimes web design as well as archaeological sites and topics from around the world.
+archaeoINK is used as a blog environment to talk about different archaeological topics, including illustrations, maps, GIS and also sometimes web design as well as archaeological sites and topics from around the world.
 
 ## Newsletter Subscription
 

@@ -17,6 +17,9 @@ importers:
 
   .:
     dependencies:
+      '@contentlayer/core':
+        specifier: ^0.3.4
+        version: 0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0)
       '@hookform/resolvers':
         specifier: ^3.9.0
         version: 3.9.0(react-hook-form@7.53.0(react@18.2.0))
@@ -43,7 +46,7 @@ importers:
         version: 1.7.7
       contentlayer:
         specifier: 0.3.4
-        version: 0.3.4(esbuild@0.18.0)
+        version: 0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0)
       dotenv:
         specifier: ^16.4.5
         version: 16.4.5
@@ -59,18 +62,21 @@ importers:
       isomorphic-fetch:
         specifier: ^3.0.0
         version: 3.0.0
+      markdown-wasm:
+        specifier: ^1.2.0
+        version: 1.2.0
       next:
         specifier: 13.5.4
         version: 13.5.4(@babel/core@7.25.2)(@opentelemetry/api@1.4.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       next-contentlayer:
         specifier: 0.3.4
-        version: 0.3.4(contentlayer@0.3.4(esbuild@0.18.0))(esbuild@0.18.0)(next@13.5.4(@babel/core@7.25.2)(@opentelemetry/api@1.4.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        version: 0.3.4(contentlayer@0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0))(esbuild@0.18.0)(markdown-wasm@1.2.0)(next@13.5.4(@babel/core@7.25.2)(@opentelemetry/api@1.4.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       next-themes:
         specifier: ^0.2.1
         version: 0.2.1(next@13.5.4(@babel/core@7.25.2)(@opentelemetry/api@1.4.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       pliny:
         specifier: 0.1.2
-        version: 0.1.2(@algolia/client-search@4.24.0)(@types/react@18.3.8)(esbuild@0.18.0)(next@13.5.4(@babel/core@7.25.2)(@opentelemetry/api@1.4.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(search-insights@2.13.0)
+        version: 0.1.2(@algolia/client-search@4.24.0)(@types/react@18.3.8)(esbuild@0.18.0)(markdown-wasm@1.2.0)(next@13.5.4(@babel/core@7.25.2)(@opentelemetry/api@1.4.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(search-insights@2.13.0)
       postcss:
         specifier: ^8.4.47
         version: 8.4.47
@@ -3409,6 +3415,9 @@ packages:
   markdown-table@3.0.3:
     resolution: {integrity: sha512-Z1NL3Tb1M9wH4XESsCDEksWoKTdlUafKc4pt0GRwjUyXaCFZ+dc3g2erqB6zm3szA2IUSi7VnPI+o/9jnxh9hw==}
 
+  markdown-wasm@1.2.0:
+    resolution: {integrity: sha512-S12OTkyXCkOgI1n1rZY9cg4bK/PGu80Emjpvwp8BEjwCxhPV3yddF0U6+QhCitdBsI1tzWcoeahmW7k0Pq81OA==}
+
   mdast-util-definitions@5.1.2:
     resolution: {integrity: sha512-8SVPMuHqlPME/z3gqVwWY4zVXn8lqKv/pAhC57FuJ40ImXyBpmO5ukh98zB2v7Blql2FiHjHv9LVztSIqjY+MA==}
 
@@ -6078,9 +6087,9 @@ snapshots:
       '@citation-js/date': 0.5.1
       citeproc: 2.4.63
 
-  '@contentlayer/cli@0.3.4(esbuild@0.18.0)':
+  '@contentlayer/cli@0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0)':
     dependencies:
-      '@contentlayer/core': 0.3.4(esbuild@0.18.0)
+      '@contentlayer/core': 0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0)
       '@contentlayer/utils': 0.3.4
       clipanion: 3.2.1(typanion@3.14.0)
       typanion: 3.14.0
@@ -6090,16 +6099,16 @@ snapshots:
       - markdown-wasm
       - supports-color
 
-  '@contentlayer/client@0.3.4(esbuild@0.18.0)':
+  '@contentlayer/client@0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0)':
     dependencies:
-      '@contentlayer/core': 0.3.4(esbuild@0.18.0)
+      '@contentlayer/core': 0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0)
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
       - esbuild
       - markdown-wasm
       - supports-color
 
-  '@contentlayer/core@0.3.4(esbuild@0.18.0)':
+  '@contentlayer/core@0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0)':
     dependencies:
       '@contentlayer/utils': 0.3.4
       camel-case: 4.1.2
@@ -6115,13 +6124,14 @@ snapshots:
       unified: 10.1.2
     optionalDependencies:
       esbuild: 0.18.0
+      markdown-wasm: 1.2.0
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
       - supports-color
 
-  '@contentlayer/source-files@0.3.4(esbuild@0.18.0)':
+  '@contentlayer/source-files@0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0)':
     dependencies:
-      '@contentlayer/core': 0.3.4(esbuild@0.18.0)
+      '@contentlayer/core': 0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0)
       '@contentlayer/utils': 0.3.4
       chokidar: 3.6.0
       fast-glob: 3.3.2
@@ -6138,10 +6148,10 @@ snapshots:
       - markdown-wasm
       - supports-color
 
-  '@contentlayer/source-remote-files@0.3.4(esbuild@0.18.0)':
+  '@contentlayer/source-remote-files@0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0)':
     dependencies:
-      '@contentlayer/core': 0.3.4(esbuild@0.18.0)
-      '@contentlayer/source-files': 0.3.4(esbuild@0.18.0)
+      '@contentlayer/core': 0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0)
+      '@contentlayer/source-files': 0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0)
       '@contentlayer/utils': 0.3.4
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
@@ -7451,13 +7461,13 @@ snapshots:
 
   concat-map@0.0.1: {}
 
-  contentlayer@0.3.4(esbuild@0.18.0):
+  contentlayer@0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0):
     dependencies:
-      '@contentlayer/cli': 0.3.4(esbuild@0.18.0)
-      '@contentlayer/client': 0.3.4(esbuild@0.18.0)
-      '@contentlayer/core': 0.3.4(esbuild@0.18.0)
-      '@contentlayer/source-files': 0.3.4(esbuild@0.18.0)
-      '@contentlayer/source-remote-files': 0.3.4(esbuild@0.18.0)
+      '@contentlayer/cli': 0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0)
+      '@contentlayer/client': 0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0)
+      '@contentlayer/core': 0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0)
+      '@contentlayer/source-files': 0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0)
+      '@contentlayer/source-remote-files': 0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0)
       '@contentlayer/utils': 0.3.4
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
@@ -9030,6 +9040,8 @@ snapshots:
 
   markdown-table@3.0.3: {}
 
+  markdown-wasm@1.2.0: {}
+
   mdast-util-definitions@5.1.2:
     dependencies:
       '@types/mdast': 3.0.15
@@ -9891,11 +9903,11 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  next-contentlayer@0.3.4(contentlayer@0.3.4(esbuild@0.18.0))(esbuild@0.18.0)(next@13.5.4(@babel/core@7.25.2)(@opentelemetry/api@1.4.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  next-contentlayer@0.3.4(contentlayer@0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0))(esbuild@0.18.0)(markdown-wasm@1.2.0)(next@13.5.4(@babel/core@7.25.2)(@opentelemetry/api@1.4.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
-      '@contentlayer/core': 0.3.4(esbuild@0.18.0)
+      '@contentlayer/core': 0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0)
       '@contentlayer/utils': 0.3.4
-      contentlayer: 0.3.4(esbuild@0.18.0)
+      contentlayer: 0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0)
       next: 13.5.4(@babel/core@7.25.2)(@opentelemetry/api@1.4.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -10127,19 +10139,19 @@ snapshots:
 
   pirates@4.0.6: {}
 
-  pliny@0.1.2(@algolia/client-search@4.24.0)(@types/react@18.3.8)(esbuild@0.18.0)(next@13.5.4(@babel/core@7.25.2)(@opentelemetry/api@1.4.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(search-insights@2.13.0):
+  pliny@0.1.2(@algolia/client-search@4.24.0)(@types/react@18.3.8)(esbuild@0.18.0)(markdown-wasm@1.2.0)(next@13.5.4(@babel/core@7.25.2)(@opentelemetry/api@1.4.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(search-insights@2.13.0):
     dependencies:
       '@docsearch/react': 3.6.1(@algolia/client-search@4.24.0)(@types/react@18.3.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(search-insights@2.13.0)
       '@giscus/react': 2.4.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@mailchimp/mailchimp_marketing': 3.0.80
-      contentlayer: 0.3.4(esbuild@0.18.0)
+      contentlayer: 0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0)
       copyfiles: 2.4.1
       github-slugger: 1.5.0
       image-size: 1.0.0
       js-yaml: 4.1.0
       kbar: 0.1.0-beta.43(@types/react@18.3.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       next: 13.5.4(@babel/core@7.25.2)(@opentelemetry/api@1.4.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      next-contentlayer: 0.3.4(contentlayer@0.3.4(esbuild@0.18.0))(esbuild@0.18.0)(next@13.5.4(@babel/core@7.25.2)(@opentelemetry/api@1.4.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      next-contentlayer: 0.3.4(contentlayer@0.3.4(esbuild@0.18.0)(markdown-wasm@1.2.0))(esbuild@0.18.0)(markdown-wasm@1.2.0)(next@13.5.4(@babel/core@7.25.2)(@opentelemetry/api@1.4.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       next-themes: 0.2.1(next@13.5.4(@babel/core@7.25.2)(@opentelemetry/api@1.4.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)

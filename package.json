@@ -28,6 +28,7 @@
     "@opentelemetry/semantic-conventions": "1.13.0"
   },
   "dependencies": {
+    "@contentlayer/core": "^0.3.4",
     "@hookform/resolvers": "^3.9.0",
     "@mdx-js/loader": "^3.0.1",
     "@next/bundle-analyzer": "13.5.4",
@@ -42,6 +43,7 @@
     "github-slugger": "^1.5.0",
     "gray-matter": "^4.0.3",
     "isomorphic-fetch": "^3.0.0",
+    "markdown-wasm": "^1.2.0",
     "next": "13.5.4",
     "next-contentlayer": "0.3.4",
     "next-themes": "^0.2.1",
@@ -82,5 +84,6 @@
     "prettier-plugin-tailwindcss": "^0.5.14",
     "remark": "^15.0.1",
     "typescript": "^5.6.2"
-  }
+  },
+  "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1"
 }

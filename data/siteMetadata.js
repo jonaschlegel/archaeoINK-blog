@@ -2,7 +2,7 @@
 const siteMetadata = {
   title: 'TrowelJournal',
   author: 'Jona Schlegel',
-  headerTitle: 'Trowel Journal',
+  headerTitle: 'archaeoINK',
   description: 'A journey through archaeology, illustration, and scientific communication',
   language: 'en-us',
   siteUrl: 'https://jonaschlegel.com/',
