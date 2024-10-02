@@ -1,6 +1,6 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'TrowelJournal',
+  title: 'archaeoINK',
   author: 'Jona Schlegel',
   headerTitle: 'archaeoINK',
   description: 'A journey through archaeology, illustration, and scientific communication',
