@@ -11,19 +11,29 @@ const getLiteratureData = () => {
   const files = fs.readdirSync(dirPath)
   return files.map((filename) => {
     const markdownWithMeta = fs.readFileSync(path.join(dirPath, filename), 'utf-8')
-    const { data } = matter(markdownWithMeta)
+    const { data, content } = matter(markdownWithMeta)
+
+    const abstractMatch = content.match(/## Abstract\s([\s\S]*?)##/)
+    const tableOfContentsMatch = content.match(/## Table of Contents\s([\s\S]*?)##/)
+    const citationInfoMatch = content.match(/## Citation Info\s([\s\S]*?)##/)
+
     return {
       title: data.title,
-      author: data.author,
+      authors: data.authors,
       year: data.year,
+      publisher: data.publisher,
+      externalLink: data.externalLink || '',
+      reviewsLink: data.reviewsLink || '',
+      type: data.type,
+      category: data.category,
       tags: data.tags,
-      keywords: data.keywords,
-      pages: data.pages,
-      chapters: data.chapters,
-      review: data.review,
-      link: data.link,
-      buyLink: data.buyLink,
-      goodreadsLink: data.goodreadsLink,
+      isbn: data.isbn || '',
+      doi: data.doi || '',
+      abstract: abstractMatch ? abstractMatch[1].trim() : 'No abstract available.',
+      tableOfContents: tableOfContentsMatch
+        ? tableOfContentsMatch[1].trim()
+        : 'No table of contents available.',
+      citationInfo: citationInfoMatch ? citationInfoMatch[1].trim() : 'No citation info available.',
     }
   })
 }

@@ -1,34 +1,49 @@
-// components/LiteratureCard.tsx
 'use client'
 
 import { useState } from 'react'
+import LiteratureTags from './LiteratureTag'
+
+interface Author {
+  lastName: string
+  firstName: string
+}
 
 interface LiteratureProps {
   title: string
-  author: string
-  year: number
+  authors?: Author[]
+  year: string
+  publisher: string
+  externalLink?: string
+  reviewsLink?: string
+  type: string
+  category: string
   tags: string[]
-  keywords: string[]
-  pages: string
-  chapters: string[]
-  buyLink: string
-  goodreadsLink: string
-  review: string
+  isbn?: string
+  doi?: string
+  abstract: string
+  tableOfContents: string
 }
 
 const LiteratureCard = ({
   title,
-  author,
+  authors = [],
   year,
+  publisher,
+  externalLink,
+  reviewsLink,
+  type,
+  category,
   tags,
-  keywords,
-  pages,
-  chapters,
-  buyLink,
-  goodreadsLink,
-  review,
+  isbn,
+  doi,
+  abstract,
+  tableOfContents,
 }: LiteratureProps) => {
   const [isExpanded, setIsExpanded] = useState(false)
+
+  const formattedAuthors = authors.length
+    ? authors.map((author) => `${author.firstName} ${author.lastName}`).join(', ')
+    : 'No authors listed'
 
   return (
     <div className="rounded-lg border p-2 shadow-md transition-all duration-300">
@@ -57,46 +72,68 @@ const LiteratureCard = ({
         </button>
       </div>
       <p className="text-gray-700">
-        By {author} ({year})
+        By {formattedAuthors} ({year})
       </p>
       {isExpanded && (
         <>
           <p>
-            <strong>Pages:</strong> {pages}
+            <strong>Publisher:</strong> {publisher}
           </p>
           <p>
-            <strong>Chapters:</strong> {chapters.join(', ')}
+            <strong>Type:</strong> {type}
           </p>
           <p>
-            <strong>Review:</strong> {review}
+            <strong>Category:</strong> {category}
           </p>
           <p>
-            <a
-              href={buyLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary-500 underline"
-            >
-              Buy this book
-            </a>
+            <strong>Abstract:</strong> {abstract}
           </p>
           <p>
-            <a
-              href={goodreadsLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary-500 underline"
-            >
-              Find reviews on Goodreads
-            </a>
+            <strong>Table of Contents:</strong>
           </p>
+          <pre>{tableOfContents}</pre>
+
+          {externalLink && (
+            <p>
+              <a
+                href={externalLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-500 underline"
+              >
+                Purchase or Access
+              </a>
+            </p>
+          )}
+          {reviewsLink && (
+            <p>
+              <a
+                href={reviewsLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-500 underline"
+              >
+                Read Reviews
+              </a>
+            </p>
+          )}
+
+          {isbn && (
+            <p>
+              <strong>ISBN:</strong> {isbn}
+            </p>
+          )}
+          {doi && (
+            <p>
+              <strong>DOI:</strong> {doi}
+            </p>
+          )}
+
           <div className="mt-4">
             <p>
-              <strong>Tags:</strong> {tags.join(', ')}
+              <strong>Tags:</strong>
             </p>
-            <p>
-              <strong>Keywords:</strong> {keywords.join(', ')}
-            </p>
+            <LiteratureTags tags={tags} />
           </div>
         </>
       )}
