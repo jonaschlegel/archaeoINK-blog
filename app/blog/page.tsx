@@ -5,9 +5,8 @@ import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 
 const POSTS_PER_PAGE = 5
 
-// Helper function to calculate reading time
 const calculateReadingTime = (content: string) => {
-  const wordsPerMinute = 225 // Average reading speed
+  const wordsPerMinute = 225
   const wordCount = content.split(/\s+/).length
   const minutes = Math.ceil(wordCount / wordsPerMinute)
   return `${minutes} min read`
@@ -27,10 +26,10 @@ export default function BlogPage() {
     totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
   }
 
-  const postsWithReadingTime = posts.map((post) => ({
-    ...post,
-    readingTime: calculateReadingTime(post.body?.raw || post.summary || ''),
-  }))
+  const postsWithReadingTime = allBlogs.map((post) => {
+    const readingTime = calculateReadingTime(post.body?.raw || post.summary || '')
+    return { ...post, readingTime }
+  })
 
   return (
     <ListLayoutWithTags
