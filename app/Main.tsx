@@ -1,6 +1,5 @@
 import ConvertKitForm from '@/components/ConvertKitForm'
 import Link from '@/components/Link'
-import MailerLiteForm from '@/components/MailerLiteForm'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'

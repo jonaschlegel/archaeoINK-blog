@@ -5,13 +5,6 @@ import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 
 const POSTS_PER_PAGE = 5
 
-const calculateReadingTime = (content: string) => {
-  const wordsPerMinute = 225
-  const wordCount = content.split(/\s+/).length
-  const minutes = Math.ceil(wordCount / wordsPerMinute)
-  return `${minutes} min read`
-}
-
 export const metadata = genPageMetadata({ title: 'Blog' })
 
 export default function BlogPage() {
@@ -26,10 +19,9 @@ export default function BlogPage() {
     totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
   }
 
-  const postsWithReadingTime = allBlogs.map((post) => {
-    const readingTime = calculateReadingTime(post.body?.raw || post.summary || '')
-    return { ...post, readingTime }
-  })
+  const postsWithReadingTime = posts.map((post) => ({
+    ...post,
+  }))
 
   return (
     <ListLayoutWithTags

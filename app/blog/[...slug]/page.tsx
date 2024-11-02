@@ -20,9 +20,8 @@ const layouts = {
   PostBanner,
 }
 
-// Helper function to calculate reading time
 const calculateReadingTime = (content: string) => {
-  const wordsPerMinute = 225 // Average reading speed
+  const wordsPerMinute = 225
   const wordCount = content.split(/\s+/).length
   const minutes = Math.ceil(wordCount / wordsPerMinute)
   return `${minutes} min read`
