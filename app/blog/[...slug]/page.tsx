@@ -129,7 +129,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
           />
           <Layout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
-            {/* Add the reading time to the post layout */}
+            <div className="font-bold">{post.summary}</div>
             <div className="text-sm text-gray-500">{readingTime}</div>
             <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
           </Layout>
