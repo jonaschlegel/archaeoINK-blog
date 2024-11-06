@@ -20,6 +20,13 @@ const layouts = {
   PostBanner,
 }
 
+const calculateReadingTime = (content: string) => {
+  const wordsPerMinute = 225
+  const wordCount = content.split(/\s+/).length
+  const minutes = Math.ceil(wordCount / wordsPerMinute)
+  return `${minutes} min read`
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -100,6 +107,8 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     }
   })
 
+  const readingTime = calculateReadingTime(post.body?.raw || post.summary || '')
+
   const Layout = layouts[post.layout || defaultLayout]
 
   return (
@@ -120,6 +129,8 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
           />
           <Layout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
+            <div className="font-bold">{post.summary}</div>
+            <div className="text-sm text-gray-500">{readingTime}</div>
             <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
           </Layout>
         </>
