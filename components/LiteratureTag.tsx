@@ -1,17 +1,22 @@
-interface TagsProps {
-  tags: string[]
+interface LiteratureTagProps {
+  text: string
+  onClick: (tag: string) => void
+  isSelected?: boolean
 }
 
-const LiteratureTags = ({ tags }: TagsProps) => {
+const LiteratureTag = ({ text, onClick, isSelected = false }: LiteratureTagProps) => {
+  const handleClick = () => onClick(text)
+
   return (
-    <div className="flex flex-wrap gap-2">
-      {tags.map((tag) => (
-        <span key={tag} className="rounded-full bg-gray-200 px-2 py-1 text-xs">
-          {tag}
-        </span>
-      ))}
-    </div>
+    <button
+      onClick={handleClick}
+      className={`mr-3 text-sm font-medium uppercase hover:text-primary-600 dark:hover:text-primary-400 ${
+        isSelected ? 'font-semibold text-primary-600' : ''
+      }`}
+    >
+      {text.split(' ').join('-')}
+    </button>
   )
 }
 
-export default LiteratureTags
+export default LiteratureTag

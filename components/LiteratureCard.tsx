@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import LiteratureTags from './LiteratureTag'
+import LiteratureTag from './LiteratureTag'
 
 interface Author {
   lastName: string
@@ -22,6 +22,7 @@ interface LiteratureProps {
   doi?: string
   abstract: string
   tableOfContents: string
+  onTagClick: (tag: string) => void // Add onTagClick prop
 }
 
 const LiteratureCard = ({
@@ -38,6 +39,7 @@ const LiteratureCard = ({
   doi,
   abstract,
   tableOfContents,
+  onTagClick,
 }: LiteratureProps) => {
   const [isExpanded, setIsExpanded] = useState(false)
 
@@ -45,98 +47,42 @@ const LiteratureCard = ({
     ? authors.map((author) => `${author.firstName} ${author.lastName}`).join(', ')
     : 'No authors listed'
 
+  const toggleExpand = () => setIsExpanded(!isExpanded)
+
   return (
-    <div className="rounded-lg border p-2 shadow-md transition-all duration-300">
-      <div className="flex items-center justify-between">
-        <h3 className="text-xl font-bold">{title}</h3>
-        <button
-          className="flex items-center justify-center text-sm text-primary-500"
-          onClick={() => setIsExpanded(!isExpanded)}
-        >
-          <div className={`transform transition-transform ${isExpanded ? 'rotate-180' : ''}`}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="h-5 w-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
+    <div
+      role="button"
+      tabIndex={0}
+      className={`flex w-full cursor-pointer overflow-hidden rounded-lg border bg-white p-4 shadow-lg transition-all duration-300 hover:shadow-xl ${
+        isExpanded ? 'max-h-[600px]' : 'max-h-[180px]'
+      }`}
+      onClick={toggleExpand}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          toggleExpand()
+        }
+      }}
+    >
+      {/* Content Section */}
+      <div className="flex-1 space-y-2 overflow-hidden transition-all duration-300">
+        <div className="flex items-start justify-between">
+          <div>
+            {/* Title and Author Information */}
+            <h3 className="text-2xl font-semibold text-gray-800">{title}</h3>
+            <p className="text-md text-gray-600">
+              By {formattedAuthors} • {year}
+            </p>
+            <p className="mt-1 text-sm text-gray-600">{publisher}</p>
           </div>
-        </button>
+        </div>
+
+        {/* Tags Section */}
+        <div className="mt-2 flex flex-wrap">
+          {tags.map((tag) => (
+            <LiteratureTag key={tag} text={tag} onClick={onTagClick} />
+          ))}
+        </div>
       </div>
-      <p className="text-gray-700">
-        By {formattedAuthors} ({year})
-      </p>
-      {isExpanded && (
-        <>
-          <p>
-            <strong>Publisher:</strong> {publisher}
-          </p>
-          <p>
-            <strong>Type:</strong> {type}
-          </p>
-          <p>
-            <strong>Category:</strong> {category}
-          </p>
-          <p>
-            <strong>Abstract:</strong> {abstract}
-          </p>
-          <p>
-            <strong>Table of Contents:</strong>
-          </p>
-          <pre>{tableOfContents}</pre>
-
-          {externalLink && (
-            <p>
-              <a
-                href={externalLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary-500 underline"
-              >
-                Purchase or Access
-              </a>
-            </p>
-          )}
-          {reviewsLink && (
-            <p>
-              <a
-                href={reviewsLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary-500 underline"
-              >
-                Read Reviews
-              </a>
-            </p>
-          )}
-
-          {isbn && (
-            <p>
-              <strong>ISBN:</strong> {isbn}
-            </p>
-          )}
-          {doi && (
-            <p>
-              <strong>DOI:</strong> {doi}
-            </p>
-          )}
-
-          <div className="mt-4">
-            <p>
-              <strong>Tags:</strong>
-            </p>
-            <LiteratureTags tags={tags} />
-          </div>
-        </>
-      )}
     </div>
   )
 }

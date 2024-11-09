@@ -1,4 +1,4 @@
-import type { LinkProps } from 'next/link'
+import LinkProps from 'next/link'
 /* eslint-disable jsx-a11y/anchor-has-content */
 import Link from 'next/link'
 import { AnchorHTMLAttributes } from 'react'

@@ -1,4 +1,4 @@
-import LiteratureList from '@/components/LiteratureList'
+import LiteratureListLayout from '@/components/LiteratureListLayout'
 import { genPageMetadata } from 'app/seo'
 import fs from 'fs'
 import matter from 'gray-matter'
@@ -13,10 +13,6 @@ const getLiteratureData = () => {
     const markdownWithMeta = fs.readFileSync(path.join(dirPath, filename), 'utf-8')
     const { data, content } = matter(markdownWithMeta)
 
-    const abstractMatch = content.match(/## Abstract\s([\s\S]*?)##/)
-    const tableOfContentsMatch = content.match(/## Table of Contents\s([\s\S]*?)##/)
-    const citationInfoMatch = content.match(/## Citation Info\s([\s\S]*?)##/)
-
     return {
       title: data.title,
       authors: data.authors,
@@ -29,11 +25,10 @@ const getLiteratureData = () => {
       tags: data.tags,
       isbn: data.isbn || '',
       doi: data.doi || '',
-      abstract: abstractMatch ? abstractMatch[1].trim() : 'No abstract available.',
-      tableOfContents: tableOfContentsMatch
-        ? tableOfContentsMatch[1].trim()
-        : 'No table of contents available.',
-      citationInfo: citationInfoMatch ? citationInfoMatch[1].trim() : 'No citation info available.',
+      abstract: content.match(/## Abstract\s([\s\S]*?)##/)?.[1].trim() || 'No abstract available.',
+      tableOfContents:
+        content.match(/## Table of Contents\s([\s\S]*?)##/)?.[1].trim() ||
+        'No table of contents available.',
     }
   })
 }
@@ -42,9 +37,9 @@ export default function Literature() {
   const literatureData = getLiteratureData()
 
   return (
-    <div className="space-y-5 pb-8 pt-6">
-      <h1 className="text-4xl font-bold">Archaeological Illustration Resources</h1>
-      <LiteratureList literatureData={literatureData} />
+    <div className="pb-8 pt-6">
+      <h1 className="mb-6 text-4xl font-bold">Archaeological Illustration Resources</h1>
+      <LiteratureListLayout initialLiteratureData={literatureData} title="Literature Resources" />
     </div>
   )
 }
