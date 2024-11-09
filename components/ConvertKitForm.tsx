@@ -76,10 +76,7 @@ export default function ConvertKitForm() {
       onSubmit={handleSubmit(onSubmit)}
       className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
     >
-      <div className=" text-gray-900 dark:text-gray-100">
-        Want to stay updated on the latest well designed archaeological illustrations, illustrations
-        techniques and softwares, then join the archaeoINK newsletter and unsubmit at any time.
-      </div>
+      <div className=" text-gray-900 dark:text-gray-100">Join the archaeoINK newsletter.</div>
 
       <div className="mt-6 flex">
         <input
