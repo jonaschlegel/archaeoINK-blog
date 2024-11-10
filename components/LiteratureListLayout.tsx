@@ -60,13 +60,8 @@ const LiteratureListLayout = ({ initialLiteratureData }: LiteratureListLayoutPro
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
   const currentItems = filteredLiteratureData.slice(startIndex, startIndex + ITEMS_PER_PAGE)
 
-  // Filter tags from non-hidden items only
   const availableTags = Array.from(
-    new Set(
-      initialLiteratureData
-        .filter((item) => !item.hidden) // Only include tags from non-hidden items
-        .flatMap((item) => item.tags)
-    )
+    new Set(initialLiteratureData.filter((item) => !item.hidden).flatMap((item) => item.tags))
   )
 
   const availableTypes = Array.from(new Set(initialLiteratureData.map((item) => item.type)))
@@ -74,7 +69,7 @@ const LiteratureListLayout = ({ initialLiteratureData }: LiteratureListLayoutPro
   return (
     <div className="flex sm:space-x-24">
       {/* Sidebar for Type and Tags Filters */}
-      <div className="hidden h-full max-h-screen min-w-[280px] max-w-[280px] overflow-y-auto rounded bg-gray-50 pt-5 shadow-md dark:bg-gray-900/70 dark:shadow-gray-800/40 sm:flex">
+      <div className="hidden h-full max-h-screen min-w-[200px] max-w-[280px] overflow-y-auto rounded bg-gray-50 pt-5 shadow-md dark:bg-gray-900/70 dark:shadow-gray-800/40 sm:flex">
         <div className="px-6 py-4">
           <h3 className="mb-4 font-bold uppercase text-primary-500">Filter by Type</h3>
           {/* Type Filter Dropdown */}
@@ -93,7 +88,7 @@ const LiteratureListLayout = ({ initialLiteratureData }: LiteratureListLayoutPro
 
           <h3 className="mb-4 font-bold uppercase text-primary-500">Filter by Keywords</h3>
           <TagFilter
-            availableTags={availableTags} // Only show tags from non-hidden items
+            availableTags={availableTags}
             selectedTags={selectedTags}
             onTagChange={handleTagChange}
           />

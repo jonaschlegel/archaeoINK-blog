@@ -10,7 +10,7 @@ const LiteratureTag = ({ text, onClick, isSelected = false }: LiteratureTagProps
   return (
     <button
       onClick={handleClick}
-      className={`mr-3 text-sm font-medium uppercase hover:text-primary-600 dark:hover:text-primary-400 ${
+      className={`mr-3 text-left text-sm font-medium uppercase hover:text-primary-600 dark:hover:text-primary-400 ${
         isSelected ? 'font-semibold text-primary-600' : ''
       }`}
     >

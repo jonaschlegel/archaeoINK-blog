@@ -15,7 +15,7 @@ const TagFilter = ({ availableTags, selectedTags, onTagChange }: TagFilterProps)
   }
 
   return (
-    <div className="mt-4 flex flex-col space-y-3">
+    <div className="mt-4 flex flex-col items-start space-y-3">
       {availableTags.map((tag) => (
         <LiteratureTag
           key={tag}
