@@ -7,6 +7,8 @@ interface LiteratureListProps {
 }
 
 const LiteratureList = ({ literatureData, onTagClick }: LiteratureListProps) => {
+  console.log('literatureData in LiteratureList:', literatureData)
+
   return (
     <div className="space-y-4">
       {literatureData.map((item) => (
@@ -23,9 +25,9 @@ const LiteratureList = ({ literatureData, onTagClick }: LiteratureListProps) => 
           tags={item.tags}
           isbn={item.isbn}
           doi={item.doi}
+          coverImage={item.coverImage}
           abstract={item.abstract}
           tableOfContents={item.tableOfContents}
-          coverImage={item.coverImage}
           onTagClick={onTagClick}
         />
       ))}

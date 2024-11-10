@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import Image from 'next/image'
+import { startTransition, useState } from 'react'
+import Image from './Image'
 import LiteratureTag from './LiteratureTag'
 
 interface Author {
@@ -42,6 +42,8 @@ const LiteratureCard = ({
   coverImage,
   onTagClick,
 }: LiteratureProps) => {
+  console.log('Cover Image in LiteratureCard:', coverImage)
+
   const [isExpanded, setIsExpanded] = useState(false)
 
   const formattedAuthors = authors.length
@@ -65,13 +67,17 @@ const LiteratureCard = ({
       }}
     >
       {/* Cover Image Section */}
-      <Image
-        src={coverImage}
-        alt={`Cover of ${title}`}
-        width={96}
-        height={128}
-        className="mr-4 rounded-md object-cover"
-      />
+      {coverImage ? (
+        <Image
+          src={coverImage}
+          alt={`Cover of ${title}`}
+          width={96}
+          height={128}
+          className="mr-4 rounded-md object-cover"
+        />
+      ) : (
+        <div className="mr-4 h-32 w-24 rounded-md bg-gray-200"></div>
+      )}
 
       {/* Content Section */}
       <div className="flex-1 space-y-2 overflow-hidden transition-all duration-300">
