@@ -124,7 +124,7 @@ const LiteratureCard = ({
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  More Info
+                  Buy here
                 </a>
               )}
               {reviewsLink && (
@@ -134,7 +134,7 @@ const LiteratureCard = ({
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Reviews
+                  Read Reviews
                 </a>
               )}
             </div>
