@@ -25,6 +25,7 @@ const getLiteratureData = () => {
       tags: data.tags,
       isbn: data.isbn || '',
       doi: data.doi || '',
+      coverImage: data.coverImage,
       abstract: content.match(/## Abstract\s([\s\S]*?)##/)?.[1].trim() || 'No abstract available.',
       tableOfContents:
         content.match(/## Table of Contents\s([\s\S]*?)##/)?.[1].trim() ||

@@ -42,8 +42,6 @@ const LiteratureCard = ({
   coverImage,
   onTagClick,
 }: LiteratureProps) => {
-  console.log('Cover Image in LiteratureCard:', coverImage)
-
   const [isExpanded, setIsExpanded] = useState(false)
 
   const formattedAuthors = authors.length

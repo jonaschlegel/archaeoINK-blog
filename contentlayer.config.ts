@@ -100,7 +100,7 @@ export const Literature = defineDocumentType(() => ({
     doi: { type: 'string' },
     abstract: { type: 'string', required: true },
     tableOfContents: { type: 'string', required: true },
-    coverImage: { type: 'string' },
+    coverImage: { type: 'string', required: true },
   },
   computedFields: {
     ...computedFields,
