@@ -12,4 +12,5 @@ export interface LiteratureData {
   doi?: string
   abstract: string
   tableOfContents: string
+  coverImage?: string
 }

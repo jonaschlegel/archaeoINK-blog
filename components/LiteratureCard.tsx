@@ -1,6 +1,5 @@
-'use client'
-
 import { useState } from 'react'
+import Image from 'next/image'
 import LiteratureTag from './LiteratureTag'
 
 interface Author {
@@ -22,6 +21,7 @@ interface LiteratureProps {
   doi?: string
   abstract: string
   tableOfContents: string
+  coverImage?: string
   onTagClick: (tag: string) => void
 }
 
@@ -39,6 +39,7 @@ const LiteratureCard = ({
   doi,
   abstract,
   tableOfContents,
+  coverImage,
   onTagClick,
 }: LiteratureProps) => {
   const [isExpanded, setIsExpanded] = useState(false)
@@ -63,11 +64,20 @@ const LiteratureCard = ({
         }
       }}
     >
+      {/* Cover Image Section */}
+      <Image
+        src={coverImage}
+        alt={`Cover of ${title}`}
+        width={96}
+        height={128}
+        className="mr-4 rounded-md object-cover"
+      />
+
       {/* Content Section */}
       <div className="flex-1 space-y-2 overflow-hidden transition-all duration-300">
         <div className="flex items-start justify-between">
           <div>
-            <h3 className="mb-3 text-2xl font-bold leading-8 tracking-tight dark:text-white">
+            <h3 className="mb-2 text-2xl font-bold leading-8 tracking-tight dark:text-white">
               {title}
             </h3>
             <p className="text-md text-gray-500 dark:text-gray-400">
@@ -83,6 +93,43 @@ const LiteratureCard = ({
             <LiteratureTag key={tag} text={tag} onClick={onTagClick} />
           ))}
         </div>
+
+        {/* Expandable Abstract and Table of Contents */}
+        {isExpanded && (
+          <div className="mt-4 space-y-4 text-gray-700 dark:text-gray-300">
+            <div>
+              <h4 className="font-semibold">Abstract</h4>
+              <p className="text-sm">{abstract}</p>
+            </div>
+            <div>
+              <h4 className="font-semibold">Table of Contents</h4>
+              <p className="text-sm">{tableOfContents}</p>
+            </div>
+            {/* Optional Links Section */}
+            <div className="mt-2 flex space-x-4 text-sm">
+              {externalLink && (
+                <a
+                  href={externalLink}
+                  className="text-blue-500 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  More Info
+                </a>
+              )}
+              {reviewsLink && (
+                <a
+                  href={reviewsLink}
+                  className="text-blue-500 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Reviews
+                </a>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )

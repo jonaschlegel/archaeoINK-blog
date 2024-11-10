@@ -25,6 +25,7 @@ const LiteratureList = ({ literatureData, onTagClick }: LiteratureListProps) => 
           doi={item.doi}
           abstract={item.abstract}
           tableOfContents={item.tableOfContents}
+          coverImage={item.coverImage}
           onTagClick={onTagClick}
         />
       ))}
