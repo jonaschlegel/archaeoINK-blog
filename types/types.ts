@@ -14,4 +14,5 @@ export interface LiteratureData {
   tableOfContents: string
   coverImage?: string
   hidden?: boolean
+  purposeAndAudience: string
 }

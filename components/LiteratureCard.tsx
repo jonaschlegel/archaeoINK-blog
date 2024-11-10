@@ -23,6 +23,7 @@ interface LiteratureProps {
   tableOfContents: string
   coverImage?: string
   hidden?: boolean
+  purposeAndAudience: string
   onTagClick: (tag: string) => void
 }
 
@@ -42,6 +43,7 @@ const LiteratureCard = ({
   tableOfContents,
   coverImage,
   hidden,
+  purposeAndAudience,
   onTagClick,
 }: LiteratureProps) => {
   const [isExpanded, setIsExpanded] = useState(false)
@@ -104,21 +106,21 @@ const LiteratureCard = ({
 
         {/* Expandable Abstract and Table of Contents */}
         {isExpanded && (
-          <div className="mt-4 space-y-4 text-gray-700 dark:text-gray-300">
+          <div className="mt-4 max-h-[300px] space-y-4 overflow-y-auto text-gray-700 dark:text-gray-300">
             <div>
               <h4 className="font-semibold">Abstract</h4>
               <p className="text-sm">{abstract}</p>
             </div>
             <div>
-              <h4 className="font-semibold">Table of Contents</h4>
-              <p className="text-sm">{tableOfContents}</p>
+              <h4 className="font-semibold">Purpose and Audience</h4>
+              <p className="text-sm">{purposeAndAudience}</p>
             </div>
             {/* Optional Links Section */}
             <div className="mt-2 flex space-x-4 text-sm">
               {externalLink && (
                 <a
                   href={externalLink}
-                  className="text-blue-500 hover:underline"
+                  className="hover:text-primary-600 dark:hover:text-primary-400"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -128,7 +130,7 @@ const LiteratureCard = ({
               {reviewsLink && (
                 <a
                   href={reviewsLink}
-                  className="text-blue-500 hover:underline"
+                  className="hover:text-primary-600 dark:hover:text-primary-400"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
