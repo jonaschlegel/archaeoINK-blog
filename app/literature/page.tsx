@@ -41,7 +41,9 @@ export default function Literature() {
       <h1 className="mb-6 text-4xl font-bold">Archaeological Illustration Resources</h1>
       <div className="mb-6">
         A collection of literature resources related to archaeological illustration, including
-        books, articles, and other publications.
+        books, articles, and other publications. This list is a work in progress and will be updated
+        as new resources are discovered. If you have a resource you would like to add to this list,
+        please contact me.
       </div>
       <LiteratureListLayout initialLiteratureData={literatureData} />
     </div>

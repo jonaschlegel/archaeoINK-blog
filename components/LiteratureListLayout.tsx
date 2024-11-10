@@ -5,31 +5,15 @@ import LiteratureList from './LiteratureList'
 import TagFilter from './TagFilter'
 import Pagination from './Pagination'
 import SearchBar from './SearchBar'
-
-interface LiteratureData {
-  title: string
-  authors: { firstName: string; lastName: string }[]
-  year: string
-  publisher: string
-  externalLink?: string
-  reviewsLink?: string
-  type: string
-  category: string
-  tags: string[]
-  isbn?: string
-  doi?: string
-  abstract: string
-  tableOfContents: string
-}
+import { LiteratureData } from '../types/types'
 
 interface LiteratureListLayoutProps {
   initialLiteratureData: LiteratureData[]
-  title: string
 }
 
 const ITEMS_PER_PAGE = 10
 
-const LiteratureListLayout = ({ initialLiteratureData, title }: LiteratureListLayoutProps) => {
+const LiteratureListLayout = ({ initialLiteratureData }: LiteratureListLayoutProps) => {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedTags, setSelectedTags] = useState<string[]>([])
   const [selectedType, setSelectedType] = useState('')
@@ -108,9 +92,6 @@ const LiteratureListLayout = ({ initialLiteratureData, title }: LiteratureListLa
 
       {/* Main Content for Search and Literature List */}
       <div className="w-full">
-        <h1 className="mb-4 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100">
-          {title}
-        </h1>
         <SearchBar onSearch={handleSearch} />
         <LiteratureList literatureData={currentItems} onTagClick={handleTagClick} />
         {totalPages > 1 && (
