@@ -53,7 +53,7 @@ const LiteratureCard = ({
     <div
       role="button"
       tabIndex={0}
-      className={`flex w-full cursor-pointer overflow-hidden rounded-lg border bg-white p-4 shadow-lg transition-all duration-300 hover:shadow-xl ${
+      className={`flex w-full cursor-pointer rounded-md border-2 border-gray-200 border-opacity-60 p-4 shadow-lg transition-all duration-300 hover:shadow-xl dark:border-gray-700 ${
         isExpanded ? 'max-h-[600px]' : 'max-h-[180px]'
       }`}
       onClick={toggleExpand}
@@ -67,11 +67,13 @@ const LiteratureCard = ({
       <div className="flex-1 space-y-2 overflow-hidden transition-all duration-300">
         <div className="flex items-start justify-between">
           <div>
-            <h3 className="text-2xl font-semibold text-gray-800">{title}</h3>
-            <p className="text-md text-gray-600">
+            <h3 className="mb-3 text-2xl font-bold leading-8 tracking-tight dark:text-white">
+              {title}
+            </h3>
+            <p className="text-md text-gray-500 dark:text-gray-400">
               By {formattedAuthors} • {year}
             </p>
-            <p className="mt-1 text-sm text-gray-600">{publisher}</p>
+            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{publisher}</p>
           </div>
         </div>
 

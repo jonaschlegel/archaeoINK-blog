@@ -71,7 +71,7 @@ const LiteratureListLayout = ({ initialLiteratureData }: LiteratureListLayoutPro
           <select
             value={selectedType}
             onChange={(e) => handleTypeChange(e.target.value)}
-            className="mb-4 w-full rounded-lg border px-4 py-2 shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+            className="mb-4 w-full rounded-lg border px-4 py-2 shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300"
           >
             <option value="">All Types</option>
             {availableTypes.map((type) => (
@@ -81,7 +81,7 @@ const LiteratureListLayout = ({ initialLiteratureData }: LiteratureListLayoutPro
             ))}
           </select>
 
-          <h3 className="mb-4 font-bold uppercase text-primary-500">Filter by Tags</h3>
+          <h3 className="mb-4 font-bold uppercase text-primary-500">Filter by Keywords</h3>
           <TagFilter
             availableTags={Array.from(new Set(initialLiteratureData.flatMap((item) => item.tags)))}
             selectedTags={selectedTags}

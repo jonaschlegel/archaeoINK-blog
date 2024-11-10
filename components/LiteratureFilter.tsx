@@ -48,7 +48,7 @@ const LiteratureFilter = ({ initialLiteratureData }: LiteratureFilterProps) => {
   return (
     <div className="flex space-x-6">
       <div className="w-1/4 rounded-lg bg-gray-100 p-4 shadow-md">
-        <h2 className="mb-4 justify-center text-lg font-semibold">Filter by Keywords</h2>
+        <h2 className="mb-4 text-lg font-semibold">Filter by Keywords</h2>
         <TagFilter
           availableTags={allTags}
           selectedTags={selectedTags}
@@ -61,7 +61,7 @@ const LiteratureFilter = ({ initialLiteratureData }: LiteratureFilterProps) => {
         <LiteratureList literatureData={displayedLiteratureData} onTagClick={onTagClick} />
 
         {displayLimit < filteredLiteratureData.length && (
-          <div className="mt-4 flex justify-center">
+          <div className="mt-4 flex">
             <button
               onClick={handleLoadMore}
               className="rounded-lg bg-primary-500 px-4 py-2 text-white hover:bg-primary-600"

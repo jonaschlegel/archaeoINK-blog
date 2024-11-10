@@ -20,7 +20,7 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
         placeholder="Search by title or author..."
         value={searchQuery}
         onChange={handleSearch}
-        className="w-full rounded-lg border px-4 py-2 shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+        className="w-full rounded-lg border px-4 py-2 shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300"
       />
     </div>
   )
