@@ -13,4 +13,5 @@ export interface LiteratureData {
   abstract: string
   tableOfContents: string
   coverImage?: string
+  hidden?: boolean
 }

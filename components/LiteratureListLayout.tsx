@@ -43,6 +43,7 @@ const LiteratureListLayout = ({ initialLiteratureData }: LiteratureListLayoutPro
 
   const filteredLiteratureData = useMemo(() => {
     return initialLiteratureData.filter((item) => {
+      const isVisible = !item.hidden // Ensure hidden items are excluded
       const matchesType = selectedType === '' || item.type === selectedType
       const matchesSearch =
         item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -51,13 +52,22 @@ const LiteratureListLayout = ({ initialLiteratureData }: LiteratureListLayoutPro
         )
       const matchesTags =
         selectedTags.length === 0 || selectedTags.every((tag) => item.tags.includes(tag))
-      return matchesType && matchesSearch && matchesTags
+      return isVisible && matchesType && matchesSearch && matchesTags
     })
   }, [initialLiteratureData, searchQuery, selectedTags, selectedType])
 
   const totalPages = Math.ceil(filteredLiteratureData.length / ITEMS_PER_PAGE)
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
   const currentItems = filteredLiteratureData.slice(startIndex, startIndex + ITEMS_PER_PAGE)
+
+  // Filter tags from non-hidden items only
+  const availableTags = Array.from(
+    new Set(
+      initialLiteratureData
+        .filter((item) => !item.hidden) // Only include tags from non-hidden items
+        .flatMap((item) => item.tags)
+    )
+  )
 
   const availableTypes = Array.from(new Set(initialLiteratureData.map((item) => item.type)))
 
@@ -83,7 +93,7 @@ const LiteratureListLayout = ({ initialLiteratureData }: LiteratureListLayoutPro
 
           <h3 className="mb-4 font-bold uppercase text-primary-500">Filter by Keywords</h3>
           <TagFilter
-            availableTags={Array.from(new Set(initialLiteratureData.flatMap((item) => item.tags)))}
+            availableTags={availableTags} // Only show tags from non-hidden items
             selectedTags={selectedTags}
             onTagChange={handleTagChange}
           />

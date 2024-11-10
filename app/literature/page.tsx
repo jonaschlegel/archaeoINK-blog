@@ -30,6 +30,7 @@ const getLiteratureData = () => {
       tableOfContents:
         content.match(/## Table of Contents\s([\s\S]*?)##/)?.[1].trim() ||
         'No table of contents available.',
+      hidden: data.hidden || false,
     }
   })
 }

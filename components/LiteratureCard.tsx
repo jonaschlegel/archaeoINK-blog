@@ -22,6 +22,7 @@ interface LiteratureProps {
   abstract: string
   tableOfContents: string
   coverImage?: string
+  hidden?: boolean
   onTagClick: (tag: string) => void
 }
 
@@ -40,9 +41,12 @@ const LiteratureCard = ({
   abstract,
   tableOfContents,
   coverImage,
+  hidden,
   onTagClick,
 }: LiteratureProps) => {
   const [isExpanded, setIsExpanded] = useState(false)
+
+  if (hidden) return null
 
   const formattedAuthors = authors.length
     ? authors.map((author) => `${author.firstName} ${author.lastName}`).join(', ')
