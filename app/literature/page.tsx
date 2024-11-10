@@ -39,7 +39,11 @@ export default function Literature() {
   return (
     <div className="pb-8 pt-6">
       <h1 className="mb-6 text-4xl font-bold">Archaeological Illustration Resources</h1>
-      <LiteratureListLayout initialLiteratureData={literatureData} title="Literature Resources" />
+      <div className="mb-6">
+        A collection of literature resources related to archaeological illustration, including
+        books, articles, and other publications.
+      </div>
+      <LiteratureListLayout initialLiteratureData={literatureData} />
     </div>
   )
 }

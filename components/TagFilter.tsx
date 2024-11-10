@@ -21,7 +21,7 @@ const TagFilter = ({ availableTags, selectedTags, onTagChange }: TagFilterProps)
           key={tag}
           text={tag}
           onClick={() => handleTagClick(tag)}
-          isSelected={selectedTags.includes(tag)} // Highlight selected tags
+          isSelected={selectedTags.includes(tag)}
         />
       ))}
     </div>

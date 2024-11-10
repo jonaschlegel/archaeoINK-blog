@@ -22,7 +22,7 @@ interface LiteratureProps {
   doi?: string
   abstract: string
   tableOfContents: string
-  onTagClick: (tag: string) => void // Add onTagClick prop
+  onTagClick: (tag: string) => void
 }
 
 const LiteratureCard = ({
@@ -67,7 +67,6 @@ const LiteratureCard = ({
       <div className="flex-1 space-y-2 overflow-hidden transition-all duration-300">
         <div className="flex items-start justify-between">
           <div>
-            {/* Title and Author Information */}
             <h3 className="text-2xl font-semibold text-gray-800">{title}</h3>
             <p className="text-md text-gray-600">
               By {formattedAuthors} • {year}

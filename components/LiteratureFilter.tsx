@@ -4,22 +4,7 @@ import { useState, useMemo } from 'react'
 import LiteratureList from './LiteratureList'
 import SearchBar from './SearchBar'
 import TagFilter from './TagFilter'
-
-interface LiteratureData {
-  title: string
-  authors: { firstName: string; lastName: string }[]
-  year: string
-  publisher: string
-  externalLink?: string
-  reviewsLink?: string
-  type: string
-  category: string
-  tags: string[]
-  isbn?: string
-  doi?: string
-  abstract: string
-  tableOfContents: string
-}
+import { LiteratureData } from '../types/types'
 
 interface LiteratureFilterProps {
   initialLiteratureData: LiteratureData[]
@@ -28,10 +13,16 @@ interface LiteratureFilterProps {
 const LiteratureFilter = ({ initialLiteratureData }: LiteratureFilterProps) => {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedTags, setSelectedTags] = useState<string[]>([])
-  const [displayLimit, setDisplayLimit] = useState(10) // Initial limit of 10 items
+  const [displayLimit, setDisplayLimit] = useState(10)
 
   const handleSearch = (query: string) => setSearchQuery(query)
   const handleTagChange = (tags: string[]) => setSelectedTags(tags)
+
+  const onTagClick = (tag: string) => {
+    setSelectedTags((prevTags) =>
+      prevTags.includes(tag) ? prevTags.filter((t) => t !== tag) : [...prevTags, tag]
+    )
+  }
 
   const filteredLiteratureData = useMemo(() => {
     return initialLiteratureData.filter((item) => {
@@ -46,21 +37,18 @@ const LiteratureFilter = ({ initialLiteratureData }: LiteratureFilterProps) => {
     })
   }, [initialLiteratureData, searchQuery, selectedTags])
 
-  // Collect all available tags
   const allTags = Array.from(new Set(initialLiteratureData.flatMap((item) => item.tags)))
 
-  // Limit the displayed items
   const displayedLiteratureData = filteredLiteratureData.slice(0, displayLimit)
 
   const handleLoadMore = () => {
-    setDisplayLimit((prevLimit) => prevLimit + 10) // Load 10 more items each time
+    setDisplayLimit((prevLimit) => prevLimit + 10)
   }
 
   return (
     <div className="flex space-x-6">
-      {/* Sidebar for Tag Filter */}
       <div className="w-1/4 rounded-lg bg-gray-100 p-4 shadow-md">
-        <h2 className="mb-4 text-lg font-semibold">Filter by Tags</h2>
+        <h2 className="mb-4 justify-center text-lg font-semibold">Filter by Keywords</h2>
         <TagFilter
           availableTags={allTags}
           selectedTags={selectedTags}
@@ -68,12 +56,10 @@ const LiteratureFilter = ({ initialLiteratureData }: LiteratureFilterProps) => {
         />
       </div>
 
-      {/* Main Content for Search and Literature List */}
       <div className="w-3/4 space-y-5">
         <SearchBar onSearch={handleSearch} />
-        <LiteratureList literatureData={displayedLiteratureData} />
+        <LiteratureList literatureData={displayedLiteratureData} onTagClick={onTagClick} />
 
-        {/* Load More Button */}
         {displayLimit < filteredLiteratureData.length && (
           <div className="mt-4 flex justify-center">
             <button
