@@ -24,6 +24,8 @@ interface LiteratureProps {
   coverImage?: string
   hidden?: boolean
   purposeAndAudience: string
+  reviews: string
+  keyExcerpt: string
   onTagClick: (tag: string) => void
 }
 
@@ -44,6 +46,8 @@ const LiteratureCard = ({
   coverImage,
   hidden,
   purposeAndAudience,
+  reviews,
+  keyExcerpt,
   onTagClick,
 }: LiteratureProps) => {
   const [isExpanded, setIsExpanded] = useState(false)
@@ -104,7 +108,7 @@ const LiteratureCard = ({
           ))}
         </div>
 
-        {/* Expandable Abstract and Table of Contents */}
+        {/* Expandable section */}
         {isExpanded && (
           <div className="mt-4 max-h-[300px] space-y-4 overflow-y-auto text-gray-700 dark:text-gray-300">
             <div>
@@ -115,7 +119,28 @@ const LiteratureCard = ({
               <h4 className="font-semibold">Purpose and Audience</h4>
               <p className="text-sm">{purposeAndAudience}</p>
             </div>
-            {/* Optional Links Section */}
+            {/* <div>
+              <h4 className="font-semibold">Table of Contents</h4>
+              <p className="text-sm">{tableOfContents}</p>
+            </div> */}
+            <div>
+              <h4 className="font-semibold">Key Excerpt</h4>
+              <p className="text-sm">{keyExcerpt}</p>
+            </div>
+            <div>
+              <h4 className="font-semibold">Reviews</h4>
+              <p className="text-sm">{reviews}</p>
+              {reviewsLink && (
+                <a
+                  href={reviewsLink}
+                  className="text-sm hover:text-primary-600 dark:hover:text-primary-400"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  —Read futher Reviews
+                </a>
+              )}
+            </div>
             <div className="mt-2 flex space-x-4 text-sm">
               {externalLink && (
                 <a
@@ -124,17 +149,7 @@ const LiteratureCard = ({
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Buy here
-                </a>
-              )}
-              {reviewsLink && (
-                <a
-                  href={reviewsLink}
-                  className="hover:text-primary-600 dark:hover:text-primary-400"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Read Reviews
+                  Get it here
                 </a>
               )}
             </div>

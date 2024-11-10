@@ -34,6 +34,9 @@ const getLiteratureData = () => {
       purposeAndAudience:
         content.match(/## Purpose and Audience\s([\s\S]*?)##/)?.[1].trim() ||
         'No information available.',
+      reviews: content.match(/## Reviews\s([\s\S]*?)##/)?.[1].trim() || 'No reviews available.',
+      keyExcerpt:
+        content.match(/## Key Excerpt\s([\s\S]*?)##/)?.[1].trim() || 'No key excerpt available.',
     }
   })
 }

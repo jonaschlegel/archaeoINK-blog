@@ -102,6 +102,9 @@ export const Literature = defineDocumentType(() => ({
     tableOfContents: { type: 'string', required: true },
     coverImage: { type: 'string', required: true },
     hidden: { type: 'boolean', default: false },
+    purposeAndAudience: { type: 'string' },
+    reviews: { type: 'string' },
+    keyExcerpt: { type: 'string' },
   },
   computedFields: {
     ...computedFields,

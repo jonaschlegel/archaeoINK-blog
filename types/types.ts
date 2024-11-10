@@ -15,4 +15,6 @@ export interface LiteratureData {
   coverImage?: string
   hidden?: boolean
   purposeAndAudience: string
+  reviews: string
+  keyExcerpt: string
 }

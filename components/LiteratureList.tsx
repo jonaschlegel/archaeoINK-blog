@@ -29,6 +29,8 @@ const LiteratureList = ({ literatureData, onTagClick }: LiteratureListProps) => 
           onTagClick={onTagClick}
           hidden={item.hidden}
           purposeAndAudience={item.purposeAndAudience}
+          reviews={item.reviews}
+          keyExcerpt={item.keyExcerpt}
         />
       ))}
     </div>
