@@ -84,13 +84,13 @@ function createSearchIndex(allBlogs) {
 }
 export const Literature = defineDocumentType(() => ({
   name: 'Literature',
-  filePathPattern: 'data/resources/illustrations/**/*.mdx',
+  filePathPattern: 'resources/illustrations/*.mdx',
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
     authors: { type: 'list', of: { type: 'string' } },
     year: { type: 'string', required: true },
-    publisher: { type: 'string', required: true },
+    publisher: { type: 'string' },
     externalLink: { type: 'string' },
     reviewsLink: { type: 'string' },
     literatureType: { type: 'string', required: true },
@@ -98,9 +98,9 @@ export const Literature = defineDocumentType(() => ({
     tags: { type: 'list', of: { type: 'string' } },
     isbn: { type: 'string' },
     doi: { type: 'string' },
-    abstract: { type: 'string', required: true },
-    tableOfContents: { type: 'string', required: true },
-    coverImage: { type: 'string', required: true },
+    abstract: { type: 'string' },
+    tableOfContents: { type: 'string' },
+    coverImage: { type: 'string' },
     hidden: { type: 'boolean', default: false },
     purposeAndAudience: { type: 'string' },
     reviews: { type: 'string' },
