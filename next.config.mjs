@@ -62,7 +62,7 @@ const nextConfig = {
     dirs: ['app', 'components', 'layouts', 'scripts'],
   },
   images: {
-    domains: ['picsum.photos'],
+    domains: ['picsum.photos', 'archaeoink.com'],
   },
   async headers() {
     return [
