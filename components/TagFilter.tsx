@@ -7,6 +7,8 @@ interface TagFilterProps {
 }
 
 const TagFilter = ({ availableTags, selectedTags, onTagChange }: TagFilterProps) => {
+  const sortedTags = [...availableTags].sort((a, b) => a.localeCompare(b))
+
   const handleTagClick = (tag: string) => {
     const updatedTags = selectedTags.includes(tag)
       ? selectedTags.filter((t) => t !== tag)
@@ -16,7 +18,7 @@ const TagFilter = ({ availableTags, selectedTags, onTagChange }: TagFilterProps)
 
   return (
     <div className="mt-4 flex flex-col items-start space-y-3">
-      {availableTags.map((tag) => (
+      {sortedTags.map((tag) => (
         <LiteratureTag
           key={tag}
           text={tag}
