@@ -82,6 +82,34 @@ function createSearchIndex(allBlogs) {
     console.log('Local search index generated...')
   }
 }
+export const Literature = defineDocumentType(() => ({
+  name: 'Literature',
+  filePathPattern: 'resources/illustrations/*.mdx',
+  contentType: 'mdx',
+  fields: {
+    title: { type: 'string', required: true },
+    authors: { type: 'list', of: { type: 'string' } },
+    year: { type: 'string', required: true },
+    publisher: { type: 'string' },
+    externalLink: { type: 'string' },
+    reviewsLink: { type: 'string' },
+    literatureType: { type: 'string', required: true },
+    category: { type: 'string', required: true },
+    tags: { type: 'list', of: { type: 'string' } },
+    isbn: { type: 'string' },
+    doi: { type: 'string' },
+    abstract: { type: 'string' },
+    tableOfContents: { type: 'string' },
+    coverImage: { type: 'string' },
+    hidden: { type: 'boolean', default: false },
+    purposeAndAudience: { type: 'string' },
+    reviews: { type: 'string' },
+    keyExcerpt: { type: 'string' },
+  },
+  computedFields: {
+    ...computedFields,
+  },
+}))
 
 export const Blog = defineDocumentType(() => ({
   name: 'Blog',
@@ -141,7 +169,7 @@ export const Authors = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Authors],
+  documentTypes: [Blog, Authors, Literature],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [

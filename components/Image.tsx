@@ -1,5 +1,8 @@
-import NextImage, { ImageProps } from 'next/image'
+import NextImage from 'next/image'
+import { ComponentProps } from 'react'
 
-const Image = ({ ...rest }: ImageProps) => <NextImage {...rest} />
+type NextImageProps = ComponentProps<typeof NextImage>
+
+const Image = ({ ...rest }: NextImageProps) => <NextImage {...rest} />
 
 export default Image

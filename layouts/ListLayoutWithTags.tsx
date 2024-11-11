@@ -7,6 +7,7 @@ import siteMetadata from '@/data/siteMetadata'
 import tagData from 'app/tag-data.json'
 import type { Blog } from 'contentlayer/generated'
 import { slug } from 'github-slugger'
+// @ts-ignore
 import { usePathname } from 'next/navigation'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import { formatDate } from 'pliny/utils/formatDate'
