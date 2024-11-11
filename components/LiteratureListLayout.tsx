@@ -44,7 +44,7 @@ const LiteratureListLayout = ({ initialLiteratureData }: LiteratureListLayoutPro
   const filteredLiteratureData = useMemo(() => {
     return initialLiteratureData.filter((item) => {
       const isVisible = !item.hidden // Ensure hidden items are excluded
-      const matchesType = selectedType === '' || item.type === selectedType
+      const matchesType = selectedType === '' || item.literatureType === selectedType
       const matchesSearch =
         item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.authors.some((author) =>
@@ -64,7 +64,9 @@ const LiteratureListLayout = ({ initialLiteratureData }: LiteratureListLayoutPro
     new Set(initialLiteratureData.filter((item) => !item.hidden).flatMap((item) => item.tags))
   )
 
-  const availableTypes = Array.from(new Set(initialLiteratureData.map((item) => item.type)))
+  const availableTypes = Array.from(
+    new Set(initialLiteratureData.map((item) => item.literatureType))
+  )
 
   return (
     <div className="flex sm:space-x-24">
