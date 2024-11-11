@@ -18,7 +18,7 @@ const LiteratureList = ({ literatureData, onTagClick }: LiteratureListProps) => 
           publisher={item.publisher}
           externalLink={item.externalLink}
           reviewsLink={item.reviewsLink}
-          type={item.type}
+          literatureType={item.literatureType}
           category={item.category}
           tags={item.tags}
           isbn={item.isbn}
