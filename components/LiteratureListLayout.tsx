@@ -43,7 +43,7 @@ const LiteratureListLayout = ({ initialLiteratureData }: LiteratureListLayoutPro
 
   const filteredLiteratureData = useMemo(() => {
     return initialLiteratureData.filter((item) => {
-      const isVisible = !item.hidden // Ensure hidden items are excluded
+      const isVisible = !item.hidden
       const matchesType = selectedType === '' || item.literatureType === selectedType
       const matchesSearch =
         item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -65,16 +65,18 @@ const LiteratureListLayout = ({ initialLiteratureData }: LiteratureListLayoutPro
   )
 
   const availableTypes = Array.from(
-    new Set(initialLiteratureData.map((item) => item.literatureType))
-  )
+    new Set(
+      initialLiteratureData
+        .map((item) => item.literatureType?.trim())
+        .filter((type) => type && type.length > 0)
+    )
+  ).sort((a, b) => a.localeCompare(b))
 
   return (
     <div className="flex sm:space-x-24">
-      {/* Sidebar for Type and Tags Filters */}
       <div className="hidden h-full max-h-screen min-w-[200px] max-w-[280px] overflow-y-auto rounded bg-gray-50 pt-5 shadow-md dark:bg-gray-900/70 dark:shadow-gray-800/40 sm:flex">
         <div className="px-6 py-4">
           <h3 className="mb-4 font-bold uppercase text-primary-500">Filter by Type</h3>
-          {/* Type Filter Dropdown */}
           <select
             value={selectedType}
             onChange={(e) => handleTypeChange(e.target.value)}
@@ -97,7 +99,6 @@ const LiteratureListLayout = ({ initialLiteratureData }: LiteratureListLayoutPro
         </div>
       </div>
 
-      {/* Main Content for Search and Literature List */}
       <div className="w-full">
         <SearchBar onSearch={handleSearch} />
         <LiteratureList literatureData={currentItems} onTagClick={handleTagClick} />

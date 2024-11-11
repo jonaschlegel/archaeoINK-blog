@@ -96,13 +96,8 @@ importers:
         specifier: ^7.1.0
         version: 7.1.0
       rehype-citation:
-<<<<<<< HEAD
-        specifier: ^2.2.1
-        version: 2.2.1
-=======
         specifier: ^2.2.2
         version: 2.2.2
->>>>>>> d0f638a74a5ccecfdbe64f00edc26cc2be9ca467
       rehype-katex:
         specifier: ^6.0.3
         version: 6.0.3
@@ -1979,13 +1974,8 @@ packages:
     resolution: {integrity: sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==}
     engines: {node: '>=10'}
 
-<<<<<<< HEAD
-  caniuse-lite@1.0.30001679:
-    resolution: {integrity: sha512-j2YqID/YwpLnKzCmBOS4tlZdWprXm3ZmQLBH9ZBXFOhoxLA46fwyBvx6toCBWBmnuwUY/qB3kEU6gFx8qgCroA==}
-=======
   caniuse-lite@1.0.30001680:
     resolution: {integrity: sha512-rPQy70G6AGUMnbwS1z6Xg+RkHYPAi18ihs47GH0jcxIG7wArmPgY3XbS2sRdBbxJljp3thdT8BIqv9ccCypiPA==}
->>>>>>> d0f638a74a5ccecfdbe64f00edc26cc2be9ca467
 
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -4208,13 +4198,8 @@ packages:
   rehype-autolink-headings@7.1.0:
     resolution: {integrity: sha512-rItO/pSdvnvsP4QRB1pmPiNHUskikqtPojZKJPPPAVx9Hj8i8TwMBhofrrAYRhYOOBZH9tgmG5lPqDLuIWPWmw==}
 
-<<<<<<< HEAD
-  rehype-citation@2.2.1:
-    resolution: {integrity: sha512-8Ybq4W0/FeuXSwTrwpDbsZ9v0X0ZeKxDKyA/9s1EI2GMZLgaowPEkFOyXhOjv7Ud2ntK86AWkove38G4U0dRuQ==}
-=======
   rehype-citation@2.2.2:
     resolution: {integrity: sha512-a9+njSn4yJ3/bePz+T8AkCLXhSb3fK+HKlG9xEcLJraN3W92jGV91a10XEvSy6gJ5BvRdtDtu3aEd1uqvNDHRQ==}
->>>>>>> d0f638a74a5ccecfdbe64f00edc26cc2be9ca467
 
   rehype-katex@6.0.3:
     resolution: {integrity: sha512-ByZlRwRUcWegNbF70CVRm2h/7xy7jQ3R9LaY4VVSvjnoVWwWVhNL60DiZsBpC5tSzYQOCvDbzncIpIjPZWodZA==}
@@ -7063,11 +7048,7 @@ snapshots:
   autoprefixer@10.4.20(postcss@8.4.48):
     dependencies:
       browserslist: 4.24.2
-<<<<<<< HEAD
-      caniuse-lite: 1.0.30001679
-=======
       caniuse-lite: 1.0.30001680
->>>>>>> d0f638a74a5ccecfdbe64f00edc26cc2be9ca467
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.1.1
@@ -7152,11 +7133,7 @@ snapshots:
 
   browserslist@4.24.2:
     dependencies:
-<<<<<<< HEAD
-      caniuse-lite: 1.0.30001679
-=======
       caniuse-lite: 1.0.30001680
->>>>>>> d0f638a74a5ccecfdbe64f00edc26cc2be9ca467
       electron-to-chromium: 1.5.55
       node-releases: 2.0.18
       update-browserslist-db: 1.1.1(browserslist@4.24.2)
@@ -7191,11 +7168,7 @@ snapshots:
 
   camelcase@6.3.0: {}
 
-<<<<<<< HEAD
-  caniuse-lite@1.0.30001679: {}
-=======
   caniuse-lite@1.0.30001680: {}
->>>>>>> d0f638a74a5ccecfdbe64f00edc26cc2be9ca467
 
   ccount@2.0.1: {}
 
@@ -9752,11 +9725,7 @@ snapshots:
       '@next/env': 13.5.4
       '@swc/helpers': 0.5.2
       busboy: 1.6.0
-<<<<<<< HEAD
-      caniuse-lite: 1.0.30001679
-=======
       caniuse-lite: 1.0.30001680
->>>>>>> d0f638a74a5ccecfdbe64f00edc26cc2be9ca467
       postcss: 8.4.31
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -10234,11 +10203,7 @@ snapshots:
       unified: 11.0.5
       unist-util-visit: 5.0.0
 
-<<<<<<< HEAD
-  rehype-citation@2.2.1:
-=======
   rehype-citation@2.2.2:
->>>>>>> d0f638a74a5ccecfdbe64f00edc26cc2be9ca467
     dependencies:
       '@citation-js/core': 0.7.14
       '@citation-js/date': 0.5.1
