@@ -5,7 +5,7 @@ export interface LiteratureData {
   publisher: string
   externalLink?: string
   reviewsLink?: string
-  type: string
+  literatureType: string
   category: string
   tags: string[]
   isbn?: string

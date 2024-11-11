@@ -20,7 +20,7 @@ const getLiteratureData = () => {
       publisher: data.publisher,
       externalLink: data.externalLink || '',
       reviewsLink: data.reviewsLink || '',
-      type: data.type,
+      literatureType: data.type,
       category: data.category,
       tags: data.tags,
       isbn: data.isbn || '',

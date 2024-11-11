@@ -93,7 +93,7 @@ export const Literature = defineDocumentType(() => ({
     publisher: { type: 'string', required: true },
     externalLink: { type: 'string' },
     reviewsLink: { type: 'string' },
-    type: { type: 'string', required: true },
+    literatureType: { type: 'string', required: true },
     category: { type: 'string', required: true },
     tags: { type: 'list', of: { type: 'string' } },
     isbn: { type: 'string' },

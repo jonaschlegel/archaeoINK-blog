@@ -14,7 +14,7 @@ interface LiteratureProps {
   publisher: string
   externalLink?: string
   reviewsLink?: string
-  type: string
+  literatureType: string
   category: string
   tags: string[]
   isbn?: string
@@ -36,7 +36,7 @@ const LiteratureCard = ({
   publisher,
   externalLink,
   reviewsLink,
-  type,
+  literatureType,
   category,
   tags,
   isbn,
