@@ -7,7 +7,12 @@ interface TagFilterProps {
 }
 
 const TagFilter = ({ availableTags, selectedTags, onTagChange }: TagFilterProps) => {
-  const sortedTags = [...availableTags].sort((a, b) => a.localeCompare(b))
+  const uniqueSortedTags = Array.from(
+    new Set(availableTags.map((tag) => tag.trim().toLowerCase()))
+  ).sort((a, b) => a.localeCompare(b))
+
+  console.log('Available Tags (Original):', availableTags)
+  console.log('Unique Sorted Tags:', uniqueSortedTags)
 
   const handleTagClick = (tag: string) => {
     const updatedTags = selectedTags.includes(tag)
@@ -18,7 +23,7 @@ const TagFilter = ({ availableTags, selectedTags, onTagChange }: TagFilterProps)
 
   return (
     <div className="mt-4 flex flex-col items-start space-y-3">
-      {sortedTags.map((tag) => (
+      {uniqueSortedTags.map((tag) => (
         <LiteratureTag
           key={tag}
           text={tag}
