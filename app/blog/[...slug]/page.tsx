@@ -49,6 +49,8 @@ export async function generateMetadata({
   let imageList = [siteMetadata.socialBanner]
   if (post.images) {
     imageList = typeof post.images === 'string' ? [post.images] : post.images
+  } else {
+    imageList = [`/static/img/og/${post.slug}.jpg`]
   }
   const ogImages = imageList.map((img) => {
     return {

@@ -67,7 +67,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                           src={author.avatar}
                           width={38}
                           height={38}
-                          alt="avatar"
+                          alt="Jona Schlegel - founder of archaeoINK"
                           className="h-10 w-10 rounded-full"
                         />
                       )}

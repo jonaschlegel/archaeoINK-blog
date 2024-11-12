@@ -47,3 +47,9 @@ span.citation p {
 li p {
   display: inline;
 }
+
+@layer components {
+  .image-caption {
+    @apply bottom-8 -mt-6 text-sm italic;
+  }
+}
