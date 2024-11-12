@@ -4,7 +4,15 @@ import fs from 'fs'
 import matter from 'gray-matter'
 import path from 'path'
 
-export const metadata = genPageMetadata({ title: 'Literature Resources' })
+export const metadata = genPageMetadata({
+  title: 'Illustration Literature Resources',
+  openGraph: {
+    images: ['/static/img/og/social-banner-literature.jpg'],
+  },
+  twitter: {
+    images: ['/static/img/og/social-banner-literature.jpg'],
+  },
+})
 
 const getLiteratureData = () => {
   const dirPath = path.join(process.cwd(), 'data/resources/illustrations')

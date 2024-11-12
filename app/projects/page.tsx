@@ -2,7 +2,15 @@ import Card from '@/components/Card'
 import projectsData from '@/data/projectsData'
 import { genPageMetadata } from 'app/seo'
 
-export const metadata = genPageMetadata({ title: 'Projects' })
+export const metadata = genPageMetadata({
+  title: 'Projects',
+  openGraph: {
+    images: ['/static/img/og/social-banner-projects.jpg'],
+  },
+  twitter: {
+    images: ['/static/img/og/social-banner-projects.jpg'],
+  },
+})
 
 export default function Projects() {
   return (
