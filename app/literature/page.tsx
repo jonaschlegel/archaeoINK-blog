@@ -16,12 +16,6 @@ export const metadata = genPageMetadata({
     'scientific illustration',
     '3D modeling archaeology',
   ],
-  openGraph: {
-    images: ['/static/img/og/social-banner-literature.jpg'],
-  },
-  twitter: {
-    images: ['/static/img/og/social-banner-literature.jpg'],
-  },
 })
 
 const getLiteratureData = () => {

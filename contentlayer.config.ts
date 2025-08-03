@@ -1,29 +1,25 @@
-import {
-  ComputedFields,
-  defineDocumentType,
-  makeSource,
-} from 'contentlayer2/source-files';
-import { writeFileSync } from 'fs';
-import GithubSlugger from 'github-slugger';
-import path from 'path';
+import { ComputedFields, defineDocumentType, makeSource } from 'contentlayer2/source-files'
+import { writeFileSync } from 'fs'
+import GithubSlugger from 'github-slugger'
+import path from 'path'
 import {
   extractTocHeadings,
   remarkCodeTitles,
   remarkExtractFrontmatter,
   remarkImgToJsx,
-} from 'pliny/mdx-plugins/index.js';
-import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js';
-import readingTime from 'reading-time';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypeCitation from 'rehype-citation';
-import rehypeKatex from 'rehype-katex';
-import rehypePresetMinify from 'rehype-preset-minify';
-import rehypePrismPlus from 'rehype-prism-plus';
-import rehypeSlug from 'rehype-slug';
+} from 'pliny/mdx-plugins/index.js'
+import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
+import readingTime from 'reading-time'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeCitation from 'rehype-citation'
+import rehypeKatex from 'rehype-katex'
+import rehypePresetMinify from 'rehype-preset-minify'
+import rehypePrismPlus from 'rehype-prism-plus'
+import rehypeSlug from 'rehype-slug'
 // Remark packages
-import remarkGfm from 'remark-gfm';
-import remarkMath from 'remark-math';
-import siteMetadata from './data/siteMetadata';
+import remarkGfm from 'remark-gfm'
+import remarkMath from 'remark-math'
+import siteMetadata from './data/siteMetadata'
 
 const root = process.cwd()
 

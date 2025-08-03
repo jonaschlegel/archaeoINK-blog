@@ -17,12 +17,6 @@ export const metadata = genPageMetadata({
     'archaeological methods',
     'heritage studies',
   ],
-  openGraph: {
-    images: ['/static/img/og/social-banner-blog.jpg'],
-  },
-  twitter: {
-    images: ['/static/img/og/social-banner-blog.jpg'],
-  },
 })
 
 export default function BlogPage() {

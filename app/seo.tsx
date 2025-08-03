@@ -1,5 +1,6 @@
-import siteMetadata from '@/data/siteMetadata';
-import { Metadata } from 'next/types';
+import siteMetadata from '@/data/siteMetadata'
+import { generatePageOGImage } from '@/lib/og-image'
+import { Metadata } from 'next/types'
 
 interface PageSEOProps {
   title: string
@@ -31,7 +32,25 @@ export function genPageMetadata({
 }: PageSEOProps): Metadata {
   const fullTitle = `${title} | ${siteMetadata.title}`
   const pageDescription = description || siteMetadata.description
-  const pageImage = image ? [image] : [siteMetadata.socialBanner]
+
+  // Use provided image, or generate automatic OG image
+  let pageImage: string[]
+  if (image) {
+    pageImage = [image]
+  } else {
+    // Determine page type for OG image generation
+    const ogType = title.toLowerCase().includes('literature')
+      ? 'literature'
+      : title.toLowerCase().includes('project')
+        ? 'projects'
+        : title.toLowerCase().includes('blog')
+          ? 'blog'
+          : 'page'
+
+    const autoOGImage = generatePageOGImage(title, pageDescription, ogType)
+    pageImage = [autoOGImage]
+  }
+
   const pageKeywords = keywords ? [...siteMetadata.keywords, ...keywords] : siteMetadata.keywords
 
   return {

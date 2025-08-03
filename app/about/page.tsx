@@ -16,12 +16,6 @@ export const metadata = genPageMetadata({
     'heritage visualization',
     'about archaeoINK',
   ],
-  openGraph: {
-    images: ['/static/img/og/social-banner-about.jpg'],
-  },
-  twitter: {
-    images: ['/static/img/og/social-banner-about.jpg'],
-  },
 })
 
 export default function Page() {

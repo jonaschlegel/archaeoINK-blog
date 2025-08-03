@@ -1,16 +1,17 @@
-import 'css/prism.css';
-import 'katex/dist/katex.css';
-import { components } from '@/components/MDXComponents';
-import MDXWrapper from '@/components/MDXWrapper';
-import PageTitle from '@/components/PageTitle';
-import siteMetadata from '@/data/siteMetadata';
-import PostBanner from '@/layouts/PostBanner';
-import PostLayout from '@/layouts/PostLayout';
-import PostSimple from '@/layouts/PostSimple';
-import type { Authors, Blog } from 'contentlayer/generated';
-import { allAuthors, allBlogs } from 'contentlayer/generated';
-import type { Metadata } from 'next/types';
-import { coreContent, sortPosts } from 'pliny/utils/contentlayer';
+import 'css/prism.css'
+import 'katex/dist/katex.css'
+import { components } from '@/components/MDXComponents'
+import MDXWrapper from '@/components/MDXWrapper'
+import PageTitle from '@/components/PageTitle'
+import siteMetadata from '@/data/siteMetadata'
+import PostBanner from '@/layouts/PostBanner'
+import PostLayout from '@/layouts/PostLayout'
+import PostSimple from '@/layouts/PostSimple'
+import { generateBlogOGImage } from '@/lib/og-image'
+import type { Authors, Blog } from 'contentlayer/generated'
+import { allAuthors, allBlogs } from 'contentlayer/generated'
+import type { Metadata } from 'next/types'
+import { coreContent, sortPosts } from 'pliny/utils/contentlayer'
 
 const isProduction = process.env.NODE_ENV === 'production'
 const defaultLayout = 'PostLayout'
@@ -47,12 +48,17 @@ export async function generateMetadata({
   const publishedAt = new Date(post.date).toISOString()
   const modifiedAt = new Date(post.lastmod || post.date).toISOString()
   const authors = authorDetails.map((author) => author.name)
+
+  // Use existing images if available, otherwise generate OG image
   let imageList = [siteMetadata.socialBanner]
   if (post.images) {
     imageList = typeof post.images === 'string' ? [post.images] : post.images
   } else {
-    imageList = [`/static/img/og/${post.slug}.jpg`]
+    // Generate automatic OG image for this blog post
+    const autoOGImage = generateBlogOGImage(post.title, post.summary, post.tags)
+    imageList = [autoOGImage]
   }
+
   const ogImages = imageList.map((img) => {
     return {
       url: img.includes('http') ? img : siteMetadata.siteUrl + img,

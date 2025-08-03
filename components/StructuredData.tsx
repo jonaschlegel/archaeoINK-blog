@@ -1,4 +1,4 @@
-import siteMetadata from '@/data/siteMetadata';
+import siteMetadata from '@/data/siteMetadata'
 
 interface StructuredDataProps {
   type: 'WebSite' | 'BlogPosting' | 'Person' | 'Organization' | 'BreadcrumbList'

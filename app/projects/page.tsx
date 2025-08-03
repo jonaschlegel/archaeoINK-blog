@@ -14,12 +14,6 @@ export const metadata = genPageMetadata({
     'visualization projects',
     'heritage technology',
   ],
-  openGraph: {
-    images: ['/static/img/og/social-banner-projects.jpg'],
-  },
-  twitter: {
-    images: ['/static/img/og/social-banner-projects.jpg'],
-  },
 })
 
 export default function Projects() {
