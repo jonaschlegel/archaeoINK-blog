@@ -1,8 +1,8 @@
-import AuthorLayout from '@/layouts/AuthorLayout'
-import { genPageMetadata } from 'app/seo'
-import { allAuthors, Authors } from 'contentlayer/generated'
-import { MDXLayoutRenderer } from 'pliny/mdx-components'
-import { coreContent } from 'pliny/utils/contentlayer'
+import MDXWrapper from '@/components/MDXWrapper';
+import AuthorLayout from '@/layouts/AuthorLayout';
+import { genPageMetadata } from 'app/seo';
+import { allAuthors, Authors } from 'contentlayer/generated';
+import { coreContent } from 'pliny/utils/contentlayer';
 
 export const metadata = genPageMetadata({
   title: 'About',
@@ -21,7 +21,7 @@ export default function Page() {
   return (
     <>
       <AuthorLayout content={mainContent}>
-        <MDXLayoutRenderer code={author.body.code} />
+        <MDXWrapper code={author.body.code} />
       </AuthorLayout>
     </>
   )

@@ -1,14 +1,13 @@
-import withBundleAnalyzer from '@next/bundle-analyzer'
-import createMDX from '@next/mdx'
-import { withContentlayer } from 'next-contentlayer'
-import rehypeCitation from 'rehype-citation'
-import remarkFootnotes from 'remark-footnotes'
-import remarkGfm from 'remark-gfm'
+import withBundleAnalyzer from '@next/bundle-analyzer';
+import createMDX from '@next/mdx';
+import { withContentlayer } from 'next-contentlayer2';
+import rehypeCitation from 'rehype-citation';
+import remarkGfm from 'remark-gfm';
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkGfm, remarkFootnotes],
+    remarkPlugins: [remarkGfm],
     rehypePlugins: [[rehypeCitation, { bibliography: './data/reference-data.bib' }]],
   },
 })

@@ -1,16 +1,16 @@
-import 'css/prism.css'
-import 'katex/dist/katex.css'
-import { components } from '@/components/MDXComponents'
-import PageTitle from '@/components/PageTitle'
-import siteMetadata from '@/data/siteMetadata'
-import PostBanner from '@/layouts/PostBanner'
-import PostLayout from '@/layouts/PostLayout'
-import PostSimple from '@/layouts/PostSimple'
-import type { Authors, Blog } from 'contentlayer/generated'
-import { allAuthors, allBlogs } from 'contentlayer/generated'
-import { Metadata } from 'next'
-import { MDXLayoutRenderer } from 'pliny/mdx-components'
-import { coreContent, sortPosts } from 'pliny/utils/contentlayer'
+import 'css/prism.css';
+import 'katex/dist/katex.css';
+import { components } from '@/components/MDXComponents';
+import MDXWrapper from '@/components/MDXWrapper';
+import PageTitle from '@/components/PageTitle';
+import siteMetadata from '@/data/siteMetadata';
+import PostBanner from '@/layouts/PostBanner';
+import PostLayout from '@/layouts/PostLayout';
+import PostSimple from '@/layouts/PostSimple';
+import type { Authors, Blog } from 'contentlayer/generated';
+import { allAuthors, allBlogs } from 'contentlayer/generated';
+import type { Metadata } from 'next/types';
+import { coreContent, sortPosts } from 'pliny/utils/contentlayer';
 
 const isProduction = process.env.NODE_ENV === 'production'
 const defaultLayout = 'PostLayout'
@@ -30,9 +30,10 @@ const calculateReadingTime = (content: string) => {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string[] }
+  params: Promise<{ slug: string[] }>
 }): Promise<Metadata | undefined> {
-  const slug = decodeURI(params.slug.join('/'))
+  const { slug: slugArray } = await params
+  const slug = decodeURI(slugArray.join('/'))
   const post = allBlogs.find((p) => p.slug === slug)
   const authorList = post?.authors || ['default']
   const authorDetails = authorList.map((author) => {
@@ -88,8 +89,9 @@ export const generateStaticParams = async () => {
   return paths
 }
 
-export default async function Page({ params }: { params: { slug: string[] } }) {
-  const slug = decodeURI(params.slug.join('/'))
+export default async function Page({ params }: { params: Promise<{ slug: string[] }> }) {
+  const { slug: slugArray } = await params
+  const slug = decodeURI(slugArray.join('/'))
   const sortedPosts = sortPosts(allBlogs) as Blog[]
   const postIndex = sortedPosts.findIndex((p) => p.slug === slug)
   const prev = coreContent(sortedPosts[postIndex + 1])
@@ -133,7 +135,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
           <Layout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
             <div className="font-bold">{post.summary}</div>
             <div className="text-sm text-gray-500">{readingTime}</div>
-            <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
+            <MDXWrapper code={post.body.code} components={components} toc={post.toc} />
           </Layout>
         </>
       )}

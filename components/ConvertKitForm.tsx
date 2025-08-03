@@ -76,7 +76,7 @@ export default function ConvertKitForm() {
       onSubmit={handleSubmit(onSubmit)}
       className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
     >
-      <div className=" text-gray-900 dark:text-gray-100">Join the archaeoINK newsletter.</div>
+      <div className="text-gray-900 dark:text-gray-100">Join the archaeoINK newsletter.</div>
 
       <div className="mt-6 flex">
         <input
@@ -84,12 +84,12 @@ export default function ConvertKitForm() {
           type="email"
           placeholder="Email address"
           aria-label="Email address"
-          className="min-w-0 flex-auto appearance-none  bg-transparent px-3 py-[calc(theme(spacing.2)-1px)] text-gray-600 dark:text-gray-400"
+          className="min-w-0 flex-auto appearance-none bg-transparent px-3 py-[calc(theme(spacing.2)-1px)] text-gray-600 dark:text-gray-400"
         />
 
         <NewsletterButton
           type="submit"
-          className="ml-4 flex  bg-primary-600 text-gray-900 hover:bg-primary-700 dark:text-gray-100 dark:hover:bg-primary-400"
+          className="ml-4 flex bg-primary-600 text-gray-900 hover:bg-primary-700 dark:text-gray-100 dark:hover:bg-primary-400"
         >
           {isSubmitting ? 'Joining...' : 'Join'}
         </NewsletterButton>
