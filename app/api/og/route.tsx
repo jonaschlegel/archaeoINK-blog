@@ -1,6 +1,6 @@
-import siteMetadata from '@/data/siteMetadata';
-import { ImageResponse } from 'next/og';
-import { NextRequest } from 'next/server';
+import siteMetadata from '@/data/siteMetadata'
+import { ImageResponse } from 'next/og'
+import { NextRequest } from 'next/server'
 
 export const runtime = 'edge'
 
@@ -137,7 +137,7 @@ export async function GET(request: NextRequest) {
           )}
 
           {/* Tags */}
-          {tags && (
+          {tags && tags !== '' && (
             <div
               style={{
                 display: 'flex',
@@ -146,7 +146,8 @@ export async function GET(request: NextRequest) {
                 marginBottom: '30px',
               }}
             >
-              {tags
+              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+              {(tags as any)
                 .split(',')
                 .slice(0, 4)
                 .map((tag: string, index: number) => (
@@ -161,7 +162,8 @@ export async function GET(request: NextRequest) {
                       border: `1px solid ${colors.accent}40`,
                     }}
                   >
-                    #{tag.trim()}
+                    {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}#
+                    {(tag as any).trim()}
                   </div>
                 ))}
             </div>

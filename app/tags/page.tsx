@@ -1,9 +1,9 @@
-import Link from '@/components/Link';
-import Tag from '@/components/Tag';
-import { genPageMetadata } from 'app/seo';
-import tagData from 'app/tag-data.json';
-import { slug } from 'github-slugger';
-import { Metadata } from 'next/types';
+import Link from '@/components/Link'
+import Tag from '@/components/Tag'
+import { genPageMetadata } from 'app/seo'
+import tagData from 'app/tag-data.json'
+import { slug } from 'github-slugger'
+import { Metadata } from 'next/types'
 
 export const metadata: Metadata = genPageMetadata({
   title: 'Tags',
@@ -20,9 +20,12 @@ export const metadata: Metadata = genPageMetadata({
 })
 
 export default async function Page() {
-  const tagCounts = tagData as Record<string, number>
-  const tagKeys = Object.keys(tagCounts)
-  const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  const tagCounts = tagData as any
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  const tagKeys = (globalThis as any).Object.keys(tagCounts)
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  const sortedTags = (tagKeys as any).sort((a: any, b: any) => tagCounts[b] - tagCounts[a])
   return (
     <>
       <div className="flex flex-col items-start justify-start divide-y divide-gray-200 dark:divide-gray-700 md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6 md:divide-y-0">

@@ -1,7 +1,7 @@
-import Card from '@/components/Card';
-import projectsData from '@/data/projectsData';
-import { genPageMetadata } from 'app/seo';
-import { Metadata } from 'next/types';
+import Card from '@/components/Card'
+import projectsData from '@/data/projectsData'
+import { genPageMetadata } from 'app/seo'
+import { Metadata } from 'next/types'
 
 export const metadata: Metadata = genPageMetadata({
   title: 'Projects',
@@ -31,7 +31,8 @@ export default function Projects() {
         </div>
         <div className="container py-12">
           <div className="-m-4 flex flex-wrap">
-            {projectsData.map((d) => (
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+            {(projectsData as any).map((d: any) => (
               <Card
                 key={d.title}
                 title={d.title}

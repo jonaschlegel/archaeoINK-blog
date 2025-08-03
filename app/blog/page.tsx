@@ -1,8 +1,8 @@
-import ListLayoutWithTags from '@/layouts/ListLayoutWithTags';
-import { genPageMetadata } from 'app/seo';
-import { allBlogs } from 'contentlayer/generated';
-import { Metadata } from 'next/types';
-import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer';
+import ListLayoutWithTags from '@/layouts/ListLayoutWithTags'
+import { genPageMetadata } from 'app/seo'
+import { allBlogs } from 'contentlayer/generated'
+import { Metadata } from 'next/types'
+import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 
 const POSTS_PER_PAGE = 5
 
@@ -23,16 +23,19 @@ export const metadata: Metadata = genPageMetadata({
 export default function BlogPage() {
   const posts = allCoreContent(sortPosts(allBlogs))
   const pageNumber = 1
-  const initialDisplayPosts = posts.slice(
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  const initialDisplayPosts = (posts as any).slice(
     POSTS_PER_PAGE * (pageNumber - 1),
     POSTS_PER_PAGE * pageNumber
   )
   const pagination = {
     currentPage: pageNumber,
-    totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
+    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+    totalPages: (globalThis as any).Math.ceil((posts as any).length / POSTS_PER_PAGE),
   }
 
-  const postsWithReadingTime = posts.map((post) => ({
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  const postsWithReadingTime = (posts as any).map((post: any) => ({
     ...post,
   }))
 

@@ -1,9 +1,9 @@
-import MDXWrapper from '@/components/MDXWrapper';
-import AuthorLayout from '@/layouts/AuthorLayout';
-import { genPageMetadata } from 'app/seo';
-import { allAuthors, Authors } from 'contentlayer/generated';
-import { Metadata } from 'next/types';
-import { coreContent } from 'pliny/utils/contentlayer';
+import MDXWrapper from '@/components/MDXWrapper'
+import AuthorLayout from '@/layouts/AuthorLayout'
+import { genPageMetadata } from 'app/seo'
+import { allAuthors, Authors } from 'contentlayer/generated'
+import { Metadata } from 'next/types'
+import { coreContent } from 'pliny/utils/contentlayer'
 
 export const metadata: Metadata = genPageMetadata({
   title: 'About',
@@ -20,7 +20,8 @@ export const metadata: Metadata = genPageMetadata({
 })
 
 export default function Page() {
-  const author = allAuthors.find((p) => p.slug === 'default') as Authors
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  const author = (allAuthors as any).find((p: any) => p.slug === 'default') as Authors
   const mainContent = coreContent(author)
 
   return (

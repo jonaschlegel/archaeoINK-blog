@@ -1,9 +1,9 @@
-import LiteratureListLayout from '@/components/LiteratureListLayout';
-import { genPageMetadata } from 'app/seo';
-import fs from 'fs';
-import matter from 'gray-matter';
-import { Metadata } from 'next/types';
-import path from 'path';
+import LiteratureListLayout from '@/components/LiteratureListLayout'
+import { genPageMetadata } from 'app/seo'
+import fs from 'fs'
+import matter from 'gray-matter'
+import { Metadata } from 'next/types'
+import path from 'path'
 
 export const metadata: Metadata = genPageMetadata({
   title: 'Illustration Literature Resources',
@@ -22,7 +22,8 @@ export const metadata: Metadata = genPageMetadata({
 const getLiteratureData = () => {
   const dirPath = path.join(process.cwd(), 'data/resources/illustrations')
   const files = fs.readdirSync(dirPath)
-  return files.map((filename) => {
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  return (files as any).map((filename: any) => {
     const markdownWithMeta = fs.readFileSync(path.join(dirPath, filename), 'utf-8')
     const { data, content } = matter(markdownWithMeta)
 
@@ -39,17 +40,25 @@ const getLiteratureData = () => {
       isbn: data.isbn || '',
       doi: data.doi || '',
       coverImage: data.coverImage,
-      abstract: content.match(/## Abstract\s([\s\S]*?)##/)?.[1].trim() || 'No abstract available.',
+      /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+      abstract:
+        (content as any).match(/## Abstract\s([\s\S]*?)##/)?.[1].trim() || 'No abstract available.',
       tableOfContents:
-        content.match(/## Table of Contents\s([\s\S]*?)##/)?.[1].trim() ||
+        /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+        (content as any).match(/## Table of Contents\s([\s\S]*?)##/)?.[1].trim() ||
         'No table of contents available.',
       hidden: data.hidden || false,
       purposeAndAudience:
-        content.match(/## Purpose and Audience\s([\s\S]*?)##/)?.[1].trim() ||
+        /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+        (content as any).match(/## Purpose and Audience\s([\s\S]*?)##/)?.[1].trim() ||
         'No information available.',
-      reviews: content.match(/## Reviews\s([\s\S]*?)##/)?.[1].trim() || 'No reviews available.',
+      /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+      reviews:
+        (content as any).match(/## Reviews\s([\s\S]*?)##/)?.[1].trim() || 'No reviews available.',
       keyExcerpt:
-        content.match(/## Key Excerpt\s([\s\S]*?)##/)?.[1].trim() || 'No key excerpt available.',
+        /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+        (content as any).match(/## Key Excerpt\s([\s\S]*?)##/)?.[1].trim() ||
+        'No key excerpt available.',
     }
   })
 }
