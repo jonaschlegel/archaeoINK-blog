@@ -1,5 +1,5 @@
-import { MDXLayoutRenderer } from 'pliny/mdx-components';
-import { ReactElement } from 'react';
+import { MDXLayoutRenderer } from 'pliny/mdx-components'
+import { ReactElement } from 'react'
 
 interface MDXWrapperProps {
   code: string

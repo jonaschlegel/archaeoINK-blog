@@ -1,10 +1,22 @@
-import Link from '@/components/Link'
-import Tag from '@/components/Tag'
-import { slug } from 'github-slugger'
-import tagData from 'app/tag-data.json'
-import { genPageMetadata } from 'app/seo'
+import Link from '@/components/Link';
+import Tag from '@/components/Tag';
+import { genPageMetadata } from 'app/seo';
+import tagData from 'app/tag-data.json';
+import { slug } from 'github-slugger';
 
-export const metadata = genPageMetadata({ title: 'Tags', description: 'Things I blog about' })
+export const metadata = genPageMetadata({
+  title: 'Tags',
+  description:
+    'Browse articles by topic. Explore tags related to archaeology, illustration, scientific communication, and digital heritage.',
+  keywords: [
+    'blog tags',
+    'archaeology topics',
+    'illustration categories',
+    'archaeological methods',
+    'digital heritage',
+    'scientific communication topics',
+  ],
+})
 
 export default async function Page() {
   const tagCounts = tagData as Record<string, number>

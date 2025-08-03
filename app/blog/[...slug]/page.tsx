@@ -62,6 +62,14 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.summary,
+    keywords: post.tags,
+    authors:
+      authors.length > 0 ? authors.map((name) => ({ name })) : [{ name: siteMetadata.author }],
+    creator: siteMetadata.author,
+    publisher: siteMetadata.author,
+    alternates: {
+      canonical: `${siteMetadata.siteUrl}/blog/${post.slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.summary,
@@ -70,15 +78,30 @@ export async function generateMetadata({
       type: 'article',
       publishedTime: publishedAt,
       modifiedTime: modifiedAt,
-      url: './',
+      url: `${siteMetadata.siteUrl}/blog/${post.slug}`,
       images: ogImages,
       authors: authors.length > 0 ? authors : [siteMetadata.author],
+      section: 'Archaeology',
+      tags: post.tags,
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.summary,
       images: imageList,
+      creator: '@jonaschlegel',
+      site: '@jonaschlegel',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
   }
 }

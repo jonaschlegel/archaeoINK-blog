@@ -1,15 +1,16 @@
-import 'css/tailwind.css'
-import 'pliny/search/algolia.css'
-import Footer from '@/components/Footer'
-import Header from '@/components/Header'
-import SectionContainer from '@/components/SectionContainer'
-import siteMetadata from '@/data/siteMetadata'
-import { Inter } from 'next/font/google'
-import type { Metadata } from 'next/types'
-import { Analytics, AnalyticsConfig } from 'pliny/analytics'
-import { SearchConfig, SearchProvider } from 'pliny/search'
-import { ThemeProviders } from './theme-providers'
-import Tracking from './Tracking'
+import 'css/tailwind.css';
+import 'pliny/search/algolia.css';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import SectionContainer from '@/components/SectionContainer';
+import StructuredData from '@/components/StructuredData';
+import siteMetadata from '@/data/siteMetadata';
+import { Inter } from 'next/font/google';
+import type { Metadata } from 'next/types';
+import { Analytics, AnalyticsConfig } from 'pliny/analytics';
+import { SearchConfig, SearchProvider } from 'pliny/search';
+import { ThemeProviders } from './theme-providers';
+import Tracking from './Tracking';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -24,6 +25,10 @@ export const metadata: Metadata = {
     template: `%s | ${siteMetadata.title}`,
   },
   description: siteMetadata.description,
+  keywords: siteMetadata.keywords,
+  authors: [{ name: siteMetadata.author, url: siteMetadata.siteUrl }],
+  creator: siteMetadata.author,
+  publisher: siteMetadata.author,
   openGraph: {
     title: siteMetadata.title,
     description: siteMetadata.description,
@@ -54,7 +59,18 @@ export const metadata: Metadata = {
     title: siteMetadata.title,
     card: 'summary_large_image',
     images: [siteMetadata.socialBanner],
+    creator: '@jonaschlegel',
+    site: '@jonaschlegel',
   },
+  verification: {
+    google: '',
+    yandex: '',
+    yahoo: '',
+    other: {
+      me: [siteMetadata.email!, siteMetadata.linkedin!],
+    },
+  },
+  category: 'Archaeology',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -74,6 +90,30 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <body className="bg-white text-black antialiased dark:bg-gray-950 dark:text-white">
+        <StructuredData
+          type="WebSite"
+          data={{
+            name: siteMetadata.title,
+            description: siteMetadata.description,
+            url: siteMetadata.siteUrl,
+            inLanguage: 'en-US',
+          }}
+        />
+        <StructuredData
+          type="Organization"
+          data={{
+            name: siteMetadata.title,
+            description: siteMetadata.description,
+          }}
+        />
+        <StructuredData
+          type="Person"
+          data={{
+            name: siteMetadata.author,
+            description:
+              'Archaeologist and Illustrator specializing in scientific communication and heritage visualization',
+          }}
+        />
         <ThemeProviders>
           {
             Analytics({

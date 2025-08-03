@@ -1,11 +1,21 @@
-import LiteratureListLayout from '@/components/LiteratureListLayout'
-import { genPageMetadata } from 'app/seo'
-import fs from 'fs'
-import matter from 'gray-matter'
-import path from 'path'
+import LiteratureListLayout from '@/components/LiteratureListLayout';
+import { genPageMetadata } from 'app/seo';
+import fs from 'fs';
+import matter from 'gray-matter';
+import path from 'path';
 
 export const metadata = genPageMetadata({
   title: 'Illustration Literature Resources',
+  description:
+    'Comprehensive collection of literature and resources on archaeological illustration, digital documentation, and heritage visualization techniques.',
+  keywords: [
+    'archaeological illustration literature',
+    'digital archaeology resources',
+    'heritage visualization',
+    'archaeological documentation',
+    'scientific illustration',
+    '3D modeling archaeology',
+  ],
   openGraph: {
     images: ['/static/img/og/social-banner-literature.jpg'],
   },

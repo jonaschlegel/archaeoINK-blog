@@ -1,9 +1,19 @@
-import Card from '@/components/Card'
-import projectsData from '@/data/projectsData'
-import { genPageMetadata } from 'app/seo'
+import Card from '@/components/Card';
+import projectsData from '@/data/projectsData';
+import { genPageMetadata } from 'app/seo';
 
 export const metadata = genPageMetadata({
   title: 'Projects',
+  description:
+    'Explore web development and archaeological projects by Jona Schlegel. From digital tools for archaeology to visualization platforms and open-source contributions.',
+  keywords: [
+    'archaeological projects',
+    'web development',
+    'digital archaeology tools',
+    'open source',
+    'visualization projects',
+    'heritage technology',
+  ],
   openGraph: {
     images: ['/static/img/og/social-banner-projects.jpg'],
   },

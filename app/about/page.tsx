@@ -6,6 +6,16 @@ import { coreContent } from 'pliny/utils/contentlayer';
 
 export const metadata = genPageMetadata({
   title: 'About',
+  description:
+    'Learn about Jona Schlegel, archaeologist and illustrator behind archaeoINK. Discover the intersection of archaeology, digital illustration, and scientific communication.',
+  keywords: [
+    'Jona Schlegel',
+    'archaeologist',
+    'archaeological illustrator',
+    'scientific communication',
+    'heritage visualization',
+    'about archaeoINK',
+  ],
   openGraph: {
     images: ['/static/img/og/social-banner-about.jpg'],
   },

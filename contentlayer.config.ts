@@ -139,13 +139,33 @@ export const Blog = defineDocumentType(() => ({
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
         headline: doc.title,
+        description: doc.summary,
         datePublished: doc.date,
         dateModified: doc.lastmod || doc.date,
-        description: doc.summary,
-        image: doc.images ? doc.images[0] : siteMetadata.socialBanner,
+        image: doc.images && doc.images.length > 0 ? doc.images[0] : siteMetadata.socialBanner,
         url: `${siteMetadata.siteUrl}/${formatSlug(
           doc._raw.flattenedPath.replace(/^.+?(\/)/, '')
         )}`,
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': `${siteMetadata.siteUrl}/${formatSlug(
+            doc._raw.flattenedPath.replace(/^.+?(\/)/, '')
+          )}`,
+        },
+        publisher: {
+          '@type': 'Person',
+          name: siteMetadata.author,
+          url: siteMetadata.siteUrl,
+        },
+        keywords: Array.isArray(doc.tags) ? doc.tags.join(', ') : '',
+        articleSection: 'Archaeology',
+        inLanguage: 'en-US',
+        isAccessibleForFree: true,
+        isPartOf: {
+          '@type': 'Blog',
+          name: siteMetadata.title,
+          url: siteMetadata.siteUrl,
+        },
       }),
     },
   },
