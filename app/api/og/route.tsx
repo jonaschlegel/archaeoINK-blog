@@ -1,6 +1,6 @@
-import siteMetadata from '@/data/siteMetadata'
-import { ImageResponse } from 'next/og'
-import { NextRequest } from 'next/server'
+import siteMetadata from '@/data/siteMetadata';
+import { ImageResponse } from 'next/og';
+import { NextRequest } from 'next/server';
 
 export const runtime = 'edge'
 
@@ -8,11 +8,10 @@ export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)
   const title = searchParams.get('title') || siteMetadata.title
   const description = searchParams.get('description') || siteMetadata.description
-  const type = searchParams.get('type') || 'blog' // blog, page, or home
+  const type = searchParams.get('type') || 'blog'
   const tags = searchParams.get('tags') || ''
   const author = searchParams.get('author') || siteMetadata.author
 
-  // Define different color schemes based on type
   const colorSchemes = {
     blog: {
       background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',

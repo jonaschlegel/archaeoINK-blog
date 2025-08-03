@@ -2,9 +2,10 @@ import LiteratureListLayout from '@/components/LiteratureListLayout';
 import { genPageMetadata } from 'app/seo';
 import fs from 'fs';
 import matter from 'gray-matter';
+import { Metadata } from 'next/types';
 import path from 'path';
 
-export const metadata = genPageMetadata({
+export const metadata: Metadata = genPageMetadata({
   title: 'Illustration Literature Resources',
   description:
     'Comprehensive collection of literature and resources on archaeological illustration, digital documentation, and heritage visualization techniques.',

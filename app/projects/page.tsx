@@ -1,8 +1,9 @@
 import Card from '@/components/Card';
 import projectsData from '@/data/projectsData';
 import { genPageMetadata } from 'app/seo';
+import { Metadata } from 'next/types';
 
-export const metadata = genPageMetadata({
+export const metadata: Metadata = genPageMetadata({
   title: 'Projects',
   description:
     'Explore web development and archaeological projects by Jona Schlegel. From digital tools for archaeology to visualization platforms and open-source contributions.',

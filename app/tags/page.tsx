@@ -1,10 +1,11 @@
-import Link from '@/components/Link'
-import Tag from '@/components/Tag'
-import { genPageMetadata } from 'app/seo'
-import tagData from 'app/tag-data.json'
-import { slug } from 'github-slugger'
+import Link from '@/components/Link';
+import Tag from '@/components/Tag';
+import { genPageMetadata } from 'app/seo';
+import tagData from 'app/tag-data.json';
+import { slug } from 'github-slugger';
+import { Metadata } from 'next/types';
 
-export const metadata = genPageMetadata({
+export const metadata: Metadata = genPageMetadata({
   title: 'Tags',
   description:
     'Browse articles by topic. Explore tags related to archaeology, illustration, scientific communication, and digital heritage.',

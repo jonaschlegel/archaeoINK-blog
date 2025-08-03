@@ -1,11 +1,12 @@
 import ListLayoutWithTags from '@/layouts/ListLayoutWithTags';
 import { genPageMetadata } from 'app/seo';
 import { allBlogs } from 'contentlayer/generated';
+import { Metadata } from 'next/types';
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer';
 
 const POSTS_PER_PAGE = 5
 
-export const metadata = genPageMetadata({
+export const metadata: Metadata = genPageMetadata({
   title: 'Blog',
   description:
     'Latest articles on archaeology, illustration, and scientific communication. Explore insights on archaeological methods, digital drawing techniques, and heritage visualization.',

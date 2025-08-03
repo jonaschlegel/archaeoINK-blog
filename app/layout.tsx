@@ -1,17 +1,17 @@
-import 'css/tailwind.css'
-import 'pliny/search/algolia.css'
-import Footer from '@/components/Footer'
-import Header from '@/components/Header'
-import SectionContainer from '@/components/SectionContainer'
-import StructuredData from '@/components/StructuredData'
-import siteMetadata from '@/data/siteMetadata'
-import { generateOGImageURL } from '@/lib/og-image'
-import { Inter } from 'next/font/google'
-import type { Metadata } from 'next/types'
-import { Analytics, AnalyticsConfig } from 'pliny/analytics'
-import { SearchConfig, SearchProvider } from 'pliny/search'
-import { ThemeProviders } from './theme-providers'
-import Tracking from './Tracking'
+import 'css/tailwind.css';
+import 'pliny/search/algolia.css';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import SectionContainer from '@/components/SectionContainer';
+import StructuredData from '@/components/StructuredData';
+import siteMetadata from '@/data/siteMetadata';
+import { generateOGImageURL } from '@/lib/og-image';
+import { Inter } from 'next/font/google';
+import type { Metadata } from 'next/types';
+import { Analytics, AnalyticsConfig } from 'pliny/analytics';
+import { SearchConfig, SearchProvider } from 'pliny/search';
+import { ThemeProviders } from './theme-providers';
+import Tracking from './Tracking';
 
 const inter = Inter({
   subsets: ['latin'],

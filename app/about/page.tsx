@@ -2,9 +2,10 @@ import MDXWrapper from '@/components/MDXWrapper';
 import AuthorLayout from '@/layouts/AuthorLayout';
 import { genPageMetadata } from 'app/seo';
 import { allAuthors, Authors } from 'contentlayer/generated';
+import { Metadata } from 'next/types';
 import { coreContent } from 'pliny/utils/contentlayer';
 
-export const metadata = genPageMetadata({
+export const metadata: Metadata = genPageMetadata({
   title: 'About',
   description:
     'Learn about Jona Schlegel, archaeologist and illustrator behind archaeoINK. Discover the intersection of archaeology, digital illustration, and scientific communication.',

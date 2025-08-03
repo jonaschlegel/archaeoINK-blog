@@ -1,17 +1,17 @@
-import 'css/prism.css'
-import 'katex/dist/katex.css'
-import { components } from '@/components/MDXComponents'
-import MDXWrapper from '@/components/MDXWrapper'
-import PageTitle from '@/components/PageTitle'
-import siteMetadata from '@/data/siteMetadata'
-import PostBanner from '@/layouts/PostBanner'
-import PostLayout from '@/layouts/PostLayout'
-import PostSimple from '@/layouts/PostSimple'
-import { generateBlogOGImage } from '@/lib/og-image'
-import type { Authors, Blog } from 'contentlayer/generated'
-import { allAuthors, allBlogs } from 'contentlayer/generated'
-import type { Metadata } from 'next/types'
-import { coreContent, sortPosts } from 'pliny/utils/contentlayer'
+import 'css/prism.css';
+import 'katex/dist/katex.css';
+import { components } from '@/components/MDXComponents';
+import MDXWrapper from '@/components/MDXWrapper';
+import PageTitle from '@/components/PageTitle';
+import siteMetadata from '@/data/siteMetadata';
+import PostBanner from '@/layouts/PostBanner';
+import PostLayout from '@/layouts/PostLayout';
+import PostSimple from '@/layouts/PostSimple';
+import { generateBlogOGImage } from '@/lib/og-image';
+import type { Authors, Blog } from 'contentlayer/generated';
+import { allAuthors, allBlogs } from 'contentlayer/generated';
+import type { Metadata } from 'next/types';
+import { coreContent, sortPosts } from 'pliny/utils/contentlayer';
 
 const isProduction = process.env.NODE_ENV === 'production'
 const defaultLayout = 'PostLayout'
