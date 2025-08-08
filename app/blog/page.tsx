@@ -23,18 +23,18 @@ export const metadata: Metadata = genPageMetadata({
 export default function BlogPage() {
   const posts = allCoreContent(sortPosts(allBlogs))
   const pageNumber = 1
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   const initialDisplayPosts = (posts as any).slice(
     POSTS_PER_PAGE * (pageNumber - 1),
     POSTS_PER_PAGE * pageNumber
   )
   const pagination = {
     currentPage: pageNumber,
-    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+     
     totalPages: (globalThis as any).Math.ceil((posts as any).length / POSTS_PER_PAGE),
   }
 
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   const postsWithReadingTime = (posts as any).map((post: any) => ({
     ...post,
   }))

@@ -146,7 +146,7 @@ export async function GET(request: NextRequest) {
                 marginBottom: '30px',
               }}
             >
-              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+              { }
               {(tags as any)
                 .split(',')
                 .slice(0, 4)
@@ -162,7 +162,7 @@ export async function GET(request: NextRequest) {
                       border: `1px solid ${colors.accent}40`,
                     }}
                   >
-                    {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}#
+                    { }#
                     {(tag as any).trim()}
                   </div>
                 ))}

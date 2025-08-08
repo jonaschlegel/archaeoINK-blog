@@ -20,11 +20,11 @@ export const metadata: Metadata = genPageMetadata({
 })
 
 export default async function Page() {
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   const tagCounts = tagData as any
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   const tagKeys = (globalThis as any).Object.keys(tagCounts)
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   const sortedTags = (tagKeys as any).sort((a: any, b: any) => tagCounts[b] - tagCounts[a])
   return (
     <>

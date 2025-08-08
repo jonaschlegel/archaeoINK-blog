@@ -10,9 +10,9 @@ import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 export async function generateMetadata({
   params,
 }: {
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   params: any
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
 }): Promise<Metadata> {
   const { tag } = await params
   const decodedTag = decodeURI(tag)
@@ -29,7 +29,7 @@ export async function generateMetadata({
 }
 
 export const generateStaticParams = async () => {
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   const tagCounts = tagData as any
   const tagKeys = Object.keys(tagCounts)
   const paths = tagKeys.map((tag) => ({
@@ -44,7 +44,7 @@ export default async function TagPage({ params }: { params: any }) {
   const title = decodedTag[0].toUpperCase() + decodedTag.split(' ').join('-').slice(1)
   const filteredPosts = allCoreContent(
     sortPosts(
-      /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+       
       (allBlogs as any).filter(
         (post: any) => post.tags && post.tags.map((t: any) => slug(t)).includes(decodedTag)
       )

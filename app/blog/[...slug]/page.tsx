@@ -23,9 +23,9 @@ const layouts = {
 
 const calculateReadingTime = (content: string) => {
   const wordsPerMinute = 225
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   const wordCount = (content as any).split(/\s+/).length
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   const minutes = (globalThis as any).Math.ceil(wordCount / wordsPerMinute)
   return `${minutes} min read`
 }
@@ -33,19 +33,19 @@ const calculateReadingTime = (content: string) => {
 export async function generateMetadata({
   params,
 }: {
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   params: any
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
 }): Promise<Metadata> {
   const { slug: slugArray } = await params
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   const slug = (globalThis as any).decodeURI((slugArray as any).join('/'))
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   const post = (allBlogs as any).find((p: any) => p.slug === slug)
   const authorList = post?.authors || ['default']
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   const authorDetails = (authorList as any).map((author: any) => {
-    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+     
     const authorResults = (allAuthors as any).find((p: any) => p.slug === author)
     return coreContent(authorResults as Authors)
   })
@@ -53,11 +53,11 @@ export async function generateMetadata({
     return
   }
 
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   const publishedAt = new (globalThis as any).Date(post.date).toISOString()
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   const modifiedAt = new (globalThis as any).Date(post.lastmod || post.date).toISOString()
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   const authors = (authorDetails as any).map((author: any) => author.name)
 
   // Use existing images if available, otherwise generate OG image
@@ -70,7 +70,7 @@ export async function generateMetadata({
     imageList = [autoOGImage]
   }
 
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   const ogImages = (imageList as any).map((img: any) => {
     return {
       url: img.includes('http') ? img : siteMetadata.siteUrl + img,
@@ -125,7 +125,7 @@ export async function generateMetadata({
 }
 
 export const generateStaticParams = async () => {
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   const paths = (allBlogs as any).map((p: any) => ({ slug: (p.slug as any).split('/') }))
 
   return paths
@@ -133,20 +133,20 @@ export const generateStaticParams = async () => {
 
 export default async function Page({ params }: { params: any }) {
   const { slug: slugArray } = await params
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   const slug = (globalThis as any).decodeURI((slugArray as any).join('/'))
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   const sortedPosts = sortPosts(allBlogs) as Blog[]
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   const postIndex = (sortedPosts as any).findIndex((p: any) => p.slug === slug)
   const prev = coreContent(sortedPosts[postIndex + 1])
   const next = coreContent(sortedPosts[postIndex - 1])
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   const post = (sortedPosts as any).find((p: any) => p.slug === slug) as Blog
   const authorList = post?.authors || ['default']
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   const authorDetails = (authorList as any).map((author: any) => {
-    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+     
     const authorResults = (allAuthors as any).find((p: any) => p.slug === author)
     return coreContent(authorResults as Authors)
   })
@@ -180,7 +180,7 @@ export default async function Page({ params }: { params: any }) {
             type="application/ld+json"
             dangerouslySetInnerHTML={{
               __html: (() => {
-                /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+                 
                 const jsonStringify = (globalThis as any).JSON.stringify
                 return jsonStringify(jsonLd)
               })(),

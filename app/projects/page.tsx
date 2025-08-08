@@ -31,7 +31,7 @@ export default function Projects() {
         </div>
         <div className="container py-12">
           <div className="-m-4 flex flex-wrap">
-            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+            { }
             {(projectsData as any).map((d: any) => (
               <Card
                 key={d.title}

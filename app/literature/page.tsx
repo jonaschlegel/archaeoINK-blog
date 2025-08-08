@@ -22,7 +22,7 @@ export const metadata: Metadata = genPageMetadata({
 const getLiteratureData = () => {
   const dirPath = path.join(process.cwd(), 'data/resources/illustrations')
   const files = fs.readdirSync(dirPath)
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   return (files as any).map((filename: any) => {
     const markdownWithMeta = fs.readFileSync(path.join(dirPath, filename), 'utf-8')
     const { data, content } = matter(markdownWithMeta)
@@ -40,23 +40,23 @@ const getLiteratureData = () => {
       isbn: data.isbn || '',
       doi: data.doi || '',
       coverImage: data.coverImage,
-      /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+       
       abstract:
         (content as any).match(/## Abstract\s([\s\S]*?)##/)?.[1].trim() || 'No abstract available.',
       tableOfContents:
-        /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+         
         (content as any).match(/## Table of Contents\s([\s\S]*?)##/)?.[1].trim() ||
         'No table of contents available.',
       hidden: data.hidden || false,
       purposeAndAudience:
-        /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+         
         (content as any).match(/## Purpose and Audience\s([\s\S]*?)##/)?.[1].trim() ||
         'No information available.',
-      /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+       
       reviews:
         (content as any).match(/## Reviews\s([\s\S]*?)##/)?.[1].trim() || 'No reviews available.',
       keyExcerpt:
-        /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+         
         (content as any).match(/## Key Excerpt\s([\s\S]*?)##/)?.[1].trim() ||
         'No key excerpt available.',
     }

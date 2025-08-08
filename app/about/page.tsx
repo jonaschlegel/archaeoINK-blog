@@ -20,7 +20,7 @@ export const metadata: Metadata = genPageMetadata({
 })
 
 export default function Page() {
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+   
   const author = (allAuthors as any).find((p: any) => p.slug === 'default') as Authors
   const mainContent = coreContent(author)
 

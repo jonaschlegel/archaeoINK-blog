@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
   const { email } = requestBody
 
   if (!email) {
-    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+     
     const jsonStringify = (globalThis as any).JSON.stringify
     return new Response(jsonStringify({ message: 'No email address provided.' }), { status: 400 })
   }
@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
   const formId = process.env.CONVERTKIT_SUBSCRIBE_FORM_ID
 
   if (!api_key || !formId) {
-    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+     
     const jsonStringify = (globalThis as any).JSON.stringify
     return new Response(jsonStringify({ message: 'Server configuration error.' }), { status: 500 })
   }
@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
   const tags = [4456684]
 
   try {
-    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+     
     const jsonStringify = (globalThis as any).JSON.stringify
     const body = jsonStringify({ api_key, email, tags })
 
@@ -43,11 +43,11 @@ export async function POST(req: NextRequest) {
     })
 
     const data = await res.json()
-    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+     
     const jsonStringify2 = (globalThis as any).JSON.stringify
     return new Response(jsonStringify2(data), { status: 200 })
   } catch (e) {
-    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+     
     const jsonStringify = (globalThis as any).JSON.stringify
     return new Response(jsonStringify({ message: 'Internal server error.' }), { status: 500 })
   }
