@@ -1,14 +1,13 @@
 {
   "compilerOptions": {
     "incremental": true,
-    "target": "ES6",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "ES2020",
+    "lib": ["es2020", "dom", "dom.iterable"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "composite": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -21,6 +20,7 @@
       "@/data/*": ["data/*"],
       "@/layouts/*": ["layouts/*"],
       "@/css/*": ["css/*"],
+      "@/lib/*": ["lib/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     },
     "plugins": [
@@ -28,7 +28,7 @@
         "name": "next"
       }
     ],
-    "strictNullChecks": true
+    "strictNullChecks": false
   },
   "include": [
     "next-env.d.ts",

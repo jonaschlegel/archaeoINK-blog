@@ -4,25 +4,33 @@ import { genPageMetadata } from 'app/seo'
 import tagData from 'app/tag-data.json'
 import { allBlogs } from 'contentlayer/generated'
 import { slug } from 'github-slugger'
-import { Metadata } from 'next'
+import type { Metadata } from 'next/types'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 
-export async function generateMetadata({ params }: { params: { tag: string } }): Promise<Metadata> {
-  const tag = decodeURI(params.tag)
+export async function generateMetadata({
+  params,
+}: {
+   
+  params: any
+   
+}): Promise<Metadata> {
+  const { tag } = await params
+  const decodedTag = decodeURI(tag)
   return genPageMetadata({
-    title: tag,
-    description: `${siteMetadata.title} ${tag} tagged content`,
+    title: decodedTag,
+    description: `${siteMetadata.title} ${decodedTag} tagged content`,
     alternates: {
       canonical: './',
       types: {
-        'application/rss+xml': `${siteMetadata.siteUrl}/tags/${tag}/feed.xml`,
+        'application/rss+xml': `${siteMetadata.siteUrl}/tags/${decodedTag}/feed.xml`,
       },
     },
   })
 }
 
 export const generateStaticParams = async () => {
-  const tagCounts = tagData as Record<string, number>
+   
+  const tagCounts = tagData as any
   const tagKeys = Object.keys(tagCounts)
   const paths = tagKeys.map((tag) => ({
     tag: tag,
@@ -30,11 +38,17 @@ export const generateStaticParams = async () => {
   return paths
 }
 
-export default function TagPage({ params }: { params: { tag: string } }) {
-  const tag = decodeURI(params.tag)
-  const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)
+export default async function TagPage({ params }: { params: any }) {
+  const { tag } = await params
+  const decodedTag = decodeURI(tag)
+  const title = decodedTag[0].toUpperCase() + decodedTag.split(' ').join('-').slice(1)
   const filteredPosts = allCoreContent(
-    sortPosts(allBlogs.filter((post) => post.tags && post.tags.map((t) => slug(t)).includes(tag)))
+    sortPosts(
+       
+      (allBlogs as any).filter(
+        (post: any) => post.tags && post.tags.map((t: any) => slug(t)).includes(decodedTag)
+      )
+    )
   )
-  return <ListLayout posts={filteredPosts} title={title} />
+  return <ListLayout posts={filteredPosts as any} title={title} />
 }

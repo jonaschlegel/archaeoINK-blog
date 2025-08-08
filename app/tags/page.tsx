@@ -1,15 +1,31 @@
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
-import { slug } from 'github-slugger'
-import tagData from 'app/tag-data.json'
 import { genPageMetadata } from 'app/seo'
+import tagData from 'app/tag-data.json'
+import { slug } from 'github-slugger'
+import { Metadata } from 'next/types'
 
-export const metadata = genPageMetadata({ title: 'Tags', description: 'Things I blog about' })
+export const metadata: Metadata = genPageMetadata({
+  title: 'Tags',
+  description:
+    'Browse articles by topic. Explore tags related to archaeology, illustration, scientific communication, and digital heritage.',
+  keywords: [
+    'blog tags',
+    'archaeology topics',
+    'illustration categories',
+    'archaeological methods',
+    'digital heritage',
+    'scientific communication topics',
+  ],
+})
 
 export default async function Page() {
-  const tagCounts = tagData as Record<string, number>
-  const tagKeys = Object.keys(tagCounts)
-  const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
+   
+  const tagCounts = tagData as any
+   
+  const tagKeys = (globalThis as any).Object.keys(tagCounts)
+   
+  const sortedTags = (tagKeys as any).sort((a: any, b: any) => tagCounts[b] - tagCounts[a])
   return (
     <>
       <div className="flex flex-col items-start justify-start divide-y divide-gray-200 dark:divide-gray-700 md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6 md:divide-y-0">

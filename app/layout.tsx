@@ -3,9 +3,11 @@ import 'pliny/search/algolia.css'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import SectionContainer from '@/components/SectionContainer'
+import StructuredData from '@/components/StructuredData'
 import siteMetadata from '@/data/siteMetadata'
-import { Metadata } from 'next'
+import { generateOGImageURL } from '@/lib/og-image'
 import { Inter } from 'next/font/google'
+import type { Metadata } from 'next/types'
 import { Analytics, AnalyticsConfig } from 'pliny/analytics'
 import { SearchConfig, SearchProvider } from 'pliny/search'
 import { ThemeProviders } from './theme-providers'
@@ -24,12 +26,22 @@ export const metadata: Metadata = {
     template: `%s | ${siteMetadata.title}`,
   },
   description: siteMetadata.description,
+  keywords: siteMetadata.keywords,
+  authors: [{ name: siteMetadata.author, url: siteMetadata.siteUrl }],
+  creator: siteMetadata.author,
+  publisher: siteMetadata.author,
   openGraph: {
     title: siteMetadata.title,
     description: siteMetadata.description,
     url: './',
     siteName: siteMetadata.title,
-    images: [siteMetadata.socialBanner],
+    images: [
+      generateOGImageURL({
+        title: siteMetadata.title,
+        description: siteMetadata.description,
+        type: 'home',
+      }),
+    ],
     locale: 'en_US',
     type: 'website',
   },
@@ -53,8 +65,25 @@ export const metadata: Metadata = {
   twitter: {
     title: siteMetadata.title,
     card: 'summary_large_image',
-    images: [siteMetadata.socialBanner],
+    images: [
+      generateOGImageURL({
+        title: siteMetadata.title,
+        description: siteMetadata.description,
+        type: 'home',
+      }),
+    ],
+    creator: '@jonaschlegel',
+    site: '@jonaschlegel',
   },
+  verification: {
+    google: '',
+    yandex: '',
+    yahoo: '',
+    other: {
+      me: [siteMetadata.email!, siteMetadata.linkedin!],
+    },
+  },
+  category: 'Archaeology',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -74,14 +103,49 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <body className="bg-white text-black antialiased dark:bg-gray-950 dark:text-white">
+        <StructuredData
+          type="WebSite"
+          data={{
+            name: siteMetadata.title,
+            description: siteMetadata.description,
+            url: siteMetadata.siteUrl,
+            inLanguage: 'en-US',
+          }}
+        />
+        <StructuredData
+          type="Organization"
+          data={{
+            name: siteMetadata.title,
+            description: siteMetadata.description,
+          }}
+        />
+        <StructuredData
+          type="Person"
+          data={{
+            name: siteMetadata.author,
+            description:
+              'Archaeologist and Illustrator specializing in scientific communication and heritage visualization',
+          }}
+        />
         <ThemeProviders>
-          <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
+          {
+            Analytics({
+              analyticsConfig: siteMetadata.analytics as AnalyticsConfig,
+            }) as React.ReactElement
+          }
           <SectionContainer>
             <div className="flex h-screen flex-col justify-between font-sans">
-              <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
-                <Header />
-                <main className="mb-auto">{children}</main>
-              </SearchProvider>
+              {
+                SearchProvider({
+                  searchConfig: siteMetadata.search as SearchConfig,
+                  children: (
+                    <>
+                      <Header />
+                      <main className="mb-auto">{children}</main>
+                    </>
+                  ),
+                }) as React.ReactElement
+              }
               <Footer />
             </div>
           </SectionContainer>

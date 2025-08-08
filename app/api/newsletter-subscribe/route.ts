@@ -12,21 +12,27 @@ export async function POST(req: NextRequest) {
   const { email } = requestBody
 
   if (!email) {
-    return new Response(JSON.stringify({ message: 'No email address provided.' }), { status: 400 })
+     
+    const jsonStringify = (globalThis as any).JSON.stringify
+    return new Response(jsonStringify({ message: 'No email address provided.' }), { status: 400 })
   }
 
   const api_key = process.env.CONVERTKIT_PUBLIC_API_KEY
   const formId = process.env.CONVERTKIT_SUBSCRIBE_FORM_ID
 
   if (!api_key || !formId) {
-    return new Response(JSON.stringify({ message: 'Server configuration error.' }), { status: 500 })
+     
+    const jsonStringify = (globalThis as any).JSON.stringify
+    return new Response(jsonStringify({ message: 'Server configuration error.' }), { status: 500 })
   }
 
   const url = `https://api.convertkit.com/v3/forms/${formId}/subscribe`
   const tags = [4456684]
 
   try {
-    const body = JSON.stringify({ api_key, email, tags })
+     
+    const jsonStringify = (globalThis as any).JSON.stringify
+    const body = jsonStringify({ api_key, email, tags })
 
     const res = await fetch(url, {
       method: 'POST',
@@ -37,8 +43,12 @@ export async function POST(req: NextRequest) {
     })
 
     const data = await res.json()
-    return new Response(JSON.stringify(data), { status: 200 })
+     
+    const jsonStringify2 = (globalThis as any).JSON.stringify
+    return new Response(jsonStringify2(data), { status: 200 })
   } catch (e) {
-    return new Response(JSON.stringify({ message: 'Internal server error.' }), { status: 500 })
+     
+    const jsonStringify = (globalThis as any).JSON.stringify
+    return new Response(jsonStringify({ message: 'Internal server error.' }), { status: 500 })
   }
 }

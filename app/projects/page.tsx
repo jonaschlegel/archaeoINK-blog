@@ -1,15 +1,20 @@
 import Card from '@/components/Card'
 import projectsData from '@/data/projectsData'
 import { genPageMetadata } from 'app/seo'
+import { Metadata } from 'next/types'
 
-export const metadata = genPageMetadata({
+export const metadata: Metadata = genPageMetadata({
   title: 'Projects',
-  openGraph: {
-    images: ['/static/img/og/social-banner-projects.jpg'],
-  },
-  twitter: {
-    images: ['/static/img/og/social-banner-projects.jpg'],
-  },
+  description:
+    'Explore web development and archaeological projects by Jona Schlegel. From digital tools for archaeology to visualization platforms and open-source contributions.',
+  keywords: [
+    'archaeological projects',
+    'web development',
+    'digital archaeology tools',
+    'open source',
+    'visualization projects',
+    'heritage technology',
+  ],
 })
 
 export default function Projects() {
@@ -26,7 +31,8 @@ export default function Projects() {
         </div>
         <div className="container py-12">
           <div className="-m-4 flex flex-wrap">
-            {projectsData.map((d) => (
+            { }
+            {(projectsData as any).map((d: any) => (
               <Card
                 key={d.title}
                 title={d.title}

@@ -1,27 +1,33 @@
+import MDXWrapper from '@/components/MDXWrapper'
 import AuthorLayout from '@/layouts/AuthorLayout'
 import { genPageMetadata } from 'app/seo'
 import { allAuthors, Authors } from 'contentlayer/generated'
-import { MDXLayoutRenderer } from 'pliny/mdx-components'
+import { Metadata } from 'next/types'
 import { coreContent } from 'pliny/utils/contentlayer'
 
-export const metadata = genPageMetadata({
+export const metadata: Metadata = genPageMetadata({
   title: 'About',
-  openGraph: {
-    images: ['/static/img/og/social-banner-about.jpg'],
-  },
-  twitter: {
-    images: ['/static/img/og/social-banner-about.jpg'],
-  },
+  description:
+    'Learn about Jona Schlegel, archaeologist and illustrator behind archaeoINK. Discover the intersection of archaeology, digital illustration, and scientific communication.',
+  keywords: [
+    'Jona Schlegel',
+    'archaeologist',
+    'archaeological illustrator',
+    'scientific communication',
+    'heritage visualization',
+    'about archaeoINK',
+  ],
 })
 
 export default function Page() {
-  const author = allAuthors.find((p) => p.slug === 'default') as Authors
+   
+  const author = (allAuthors as any).find((p: any) => p.slug === 'default') as Authors
   const mainContent = coreContent(author)
 
   return (
     <>
       <AuthorLayout content={mainContent}>
-        <MDXLayoutRenderer code={author.body.code} />
+        <MDXWrapper code={author.body.code} />
       </AuthorLayout>
     </>
   )

@@ -1,4 +1,4 @@
-import { ComputedFields, defineDocumentType, makeSource } from 'contentlayer/source-files'
+import { ComputedFields, defineDocumentType, makeSource } from 'contentlayer2/source-files'
 import { writeFileSync } from 'fs'
 import GithubSlugger from 'github-slugger'
 import path from 'path'
@@ -15,9 +15,7 @@ import rehypeCitation from 'rehype-citation'
 import rehypeKatex from 'rehype-katex'
 import rehypePresetMinify from 'rehype-preset-minify'
 import rehypePrismPlus from 'rehype-prism-plus'
-// Rehype packages
 import rehypeSlug from 'rehype-slug'
-import remarkFootnotes from 'remark-footnotes'
 // Remark packages
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
@@ -58,7 +56,8 @@ function createTagCount(allBlogs) {
   allBlogs.forEach((file) => {
     if (file.tags && file.draft !== true) {
       file.tags.forEach((tag) => {
-        const formattedTag = GithubSlugger.slug(tag)
+        const slugger = new GithubSlugger()
+        const formattedTag = slugger.slug(tag)
         if (formattedTag in tagCount) {
           tagCount[formattedTag] += 1
         } else {
@@ -136,13 +135,33 @@ export const Blog = defineDocumentType(() => ({
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
         headline: doc.title,
+        description: doc.summary,
         datePublished: doc.date,
         dateModified: doc.lastmod || doc.date,
-        description: doc.summary,
-        image: doc.images ? doc.images[0] : siteMetadata.socialBanner,
+        image: doc.images && doc.images.length > 0 ? doc.images[0] : siteMetadata.socialBanner,
         url: `${siteMetadata.siteUrl}/${formatSlug(
           doc._raw.flattenedPath.replace(/^.+?(\/)/, '')
         )}`,
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': `${siteMetadata.siteUrl}/${formatSlug(
+            doc._raw.flattenedPath.replace(/^.+?(\/)/, '')
+          )}`,
+        },
+        publisher: {
+          '@type': 'Person',
+          name: siteMetadata.author,
+          url: siteMetadata.siteUrl,
+        },
+        keywords: Array.isArray(doc.tags) ? doc.tags.join(', ') : '',
+        articleSection: 'Archaeology',
+        inLanguage: 'en-US',
+        isAccessibleForFree: true,
+        isPartOf: {
+          '@type': 'Blog',
+          name: siteMetadata.title,
+          url: siteMetadata.siteUrl,
+        },
       }),
     },
   },
@@ -176,7 +195,6 @@ export default makeSource({
       // remarkExtractFrontmatter,
       remarkGfm,
       remarkCodeTitles,
-      [remarkFootnotes, { inlineNotes: true }],
       remarkMath,
       remarkImgToJsx,
     ],
