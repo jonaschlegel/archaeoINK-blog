@@ -1,11 +1,11 @@
-import siteMetadata from '@/data/siteMetadata';
-import ListLayout from '@/layouts/ListLayoutWithTags';
-import { genPageMetadata } from 'app/seo';
-import tagData from 'app/tag-data.json';
-import { allBlogs } from 'contentlayer/generated';
-import { slug } from 'github-slugger';
-import type { Metadata } from 'next/types';
-import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer';
+import siteMetadata from '@/data/siteMetadata'
+import ListLayout from '@/layouts/ListLayoutWithTags'
+import { genPageMetadata } from 'app/seo'
+import tagData from 'app/tag-data.json'
+import { allBlogs } from 'contentlayer/generated'
+import { slug } from 'github-slugger'
+import type { Metadata } from 'next/types'
+import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 
 export async function generateMetadata({
   params,
