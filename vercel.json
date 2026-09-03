@@ -1,0 +1,44 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "https://archaeoink.substack.com",
+      "permanent": true
+    },
+    {
+      "source": "/blog/100-days-of-drawing",
+      "destination": "https://archaeoink.substack.com/p/100-days-of-drawing",
+      "permanent": true
+    },
+    {
+      "source": "/blog/history-of-archaeological-illustration",
+      "destination": "https://archaeoink.substack.com/p/history-of-archaeological-illustration",
+      "permanent": true
+    },
+    {
+      "source": "/blog/learn-in-public",
+      "destination": "https://archaeoink.substack.com/p/learn-in-public",
+      "permanent": true
+    },
+    {
+      "source": "/blog/public-archaeology",
+      "destination": "https://archaeoink.substack.com/p/public-archaeology",
+      "permanent": true
+    },
+    {
+      "source": "/blog/reevaluating-skin-colour-representation-in-archaeological-illustrations",
+      "destination": "https://archaeoink.substack.com/p/reevaluating-skin-colour-representation-in-archaeological-illustrations",
+      "permanent": true
+    },
+    {
+      "source": "/blog/stippling",
+      "destination": "https://archaeoink.substack.com/p/stippling",
+      "permanent": true
+    },
+    {
+      "source": "/blog/switching-gears-from-archink-to-inktober",
+      "destination": "https://archaeoink.substack.com/p/inktober-2024",
+      "permanent": true
+    }
+  ]
+}
